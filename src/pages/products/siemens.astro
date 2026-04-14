@@ -1,0 +1,58 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { products } from '../../data/products';
+
+const siemensProducts = products.filter((product) => product.category === 'siemens');
+---
+
+<SiteLayout
+  title="Siemens S7-1200 PLC Training Kits | Professional Training Equipment"
+  description="Complete range of Siemens S7-1200 PLC training kits for communication, PID control, motion control, pneumatic systems, and VFD integration."
+>
+  <section class="product-list-page">
+    <div class="container">
+      <div class="page-header">
+        <div class="breadcrumb">
+          <a href="/">Home</a> / <span>Siemens Training Kits</span>
+        </div>
+        <h1>Siemens S7-1200 Training Kits</h1>
+        <p class="page-intro">
+          Professional training equipment for Siemens S7-1200 PLC platform. Complete kits for communication, PID control, motion control, pneumatic systems, and VFD integration.
+        </p>
+        <div class="page-stats">
+          <span><strong>{siemensProducts.length}</strong> Training Kits</span>
+          <span>Pre-wired & Ready to Use</span>
+          <span>Complete Documentation</span>
+        </div>
+      </div>
+
+      <div class="products-grid">
+        {siemensProducts.map((product) => (
+          <a class="product-card" href={`/products/${product.slug}/`}>
+            <div class="product-image">
+              <img src={product.image} alt={product.name} />
+            </div>
+            <div class="product-content">
+              <div class="product-brand siemens">{product.series}</div>
+              <h3 class="product-title">{product.shortName}</h3>
+              <p class="product-desc">{product.intro}</p>
+              <div class="product-card__footer">
+                <div class="product-price">{product.priceLabel}</div>
+                <span class="product-card__cta">View Details</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="page-cta">
+        <h2>Need help choosing the right kit?</h2>
+        <p>Contact Peggy for product recommendations, customization options, and bulk pricing.</p>
+        <div class="page-cta__actions">
+          <a class="button button--primary" href="https://wa.me/8617612051841?text=Hi%20Peggy%2C%20I%20need%20help%20choosing%20a%20Siemens%20training%20kit." target="_blank">WhatsApp Peggy</a>
+          <a class="button button--secondary" href="mailto:peggy@kernal-automation.com">Email Peggy</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</SiteLayout>

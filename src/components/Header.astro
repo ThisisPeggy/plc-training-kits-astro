@@ -1,0 +1,81 @@
+---
+import { type Lang, languages } from '../i18n/config';
+import { t, getLocalizedPath } from '../i18n/utils';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+type Props = { lang: Lang };
+const { lang } = Astro.props;
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href={getLocalizedPath(lang)}>
+      <img src="/logo.png" alt="Kernal Automation" />
+      <span>Kernal Automation</span>
+    </a>
+    <nav class="nav">
+      <a href={`${getLocalizedPath(lang)}#products`}>{t(lang, 'nav.trainingKits')}</a>
+      <a href={`${getLocalizedPath(lang)}#cabinets`}>{t(lang, 'nav.controlCabinets')}</a>
+      <a href={`${getLocalizedPath(lang)}#services`}>{t(lang, 'nav.services')}</a>
+      <a href={`${getLocalizedPath(lang)}#faq`}>{t(lang, 'nav.faq')}</a>
+      <a href={`${getLocalizedPath(lang)}#how-to-order`}>{t(lang, 'nav.howToOrder')}</a>
+      <a href={`${getLocalizedPath(lang)}#contact`}>{t(lang, 'nav.contact')}</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:0.5rem;">
+      <LanguageSwitcher lang={lang} />
+      <button id="hamburgerBtn" class="hamburger-btn" aria-label="Menu" style="display:none;flex-direction:column;gap:4px;padding:8px;border:none;background:none;cursor:pointer;">
+        <span style="display:block;width:20px;height:2px;background:var(--primary);border-radius:2px;"></span>
+        <span style="display:block;width:20px;height:2px;background:var(--primary);border-radius:2px;"></span>
+        <span style="display:block;width:20px;height:2px;background:var(--primary);border-radius:2px;"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile side menu -->
+<div id="sideMenu" style="position:fixed;inset:0 0 0 auto;z-index:1100;width:280px;background:#fff;box-shadow:-4px 0 24px rgba(0,0,0,0.15);transform:translateX(100%);transition:transform 0.3s ease;">
+  <div style="display:flex;flex-direction:column;height:100%;padding:1.25rem;overflow-y:auto;">
+    <button id="closeSideMenu" style="align-self:flex-end;border:none;background:none;font-size:1.5rem;cursor:pointer;color:var(--text-light);">&times;</button>
+    <p style="font-size:0.72rem;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:0.08em;margin:1rem 0 0.5rem;">Language</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:1.5rem;">
+      {Object.entries(languages).map(([code, { label, flag }]) => (
+        <a href={getLocalizedPath(code as Lang)} style={`display:block;text-align:center;padding:0.5rem;border-radius:8px;font-size:0.85rem;text-decoration:none;${code === lang ? 'background:var(--primary);color:#fff;font-weight:600;' : 'background:var(--bg);color:var(--text);'}`}>
+          {flag} {label}
+        </a>
+      ))}
+    </div>
+    <p style="font-size:0.72rem;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:0.08em;margin:0 0 0.5rem;">Navigation</p>
+    <nav style="display:flex;flex-direction:column;gap:0.25rem;margin-bottom:1.5rem;">
+      <a class="side-link" href={`${getLocalizedPath(lang)}#products`} style="padding:0.5rem 0;font-size:0.92rem;font-weight:500;">{t(lang, 'nav.trainingKits')}</a>
+      <a class="side-link" href={`${getLocalizedPath(lang)}#cabinets`} style="padding:0.5rem 0;font-size:0.92rem;font-weight:500;">{t(lang, 'nav.controlCabinets')}</a>
+      <a class="side-link" href={`${getLocalizedPath(lang)}#services`} style="padding:0.5rem 0;font-size:0.92rem;font-weight:500;">{t(lang, 'nav.services')}</a>
+      <a class="side-link" href={`${getLocalizedPath(lang)}#faq`} style="padding:0.5rem 0;font-size:0.92rem;font-weight:500;">{t(lang, 'nav.faq')}</a>
+      <a class="side-link" href={`${getLocalizedPath(lang)}#how-to-order`} style="padding:0.5rem 0;font-size:0.92rem;font-weight:500;">{t(lang, 'nav.howToOrder')}</a>
+      <a class="side-link" href={`${getLocalizedPath(lang)}#contact`} style="padding:0.5rem 0;font-size:0.92rem;font-weight:500;">{t(lang, 'nav.contact')}</a>
+    </nav>
+    <div style="margin-top:auto;border-top:1px solid var(--border);padding-top:1rem;display:flex;flex-direction:column;gap:0.5rem;font-size:0.88rem;">
+      <a href="https://wa.me/8617612051841" target="_blank" style="color:var(--whatsapp);font-weight:600;">WhatsApp Peggy</a>
+      <a href="mailto:peggy@kernal-automation.com" style="color:var(--text-light);">peggy@kernal-automation.com</a>
+    </div>
+  </div>
+</div>
+<div id="sideMenuOverlay" style="position:fixed;inset:0;z-index:1050;background:rgba(0,0,0,0.4);display:none;"></div>
+
+<style>
+  @media (max-width: 768px) {
+    .hamburger-btn { display: flex !important; }
+  }
+</style>
+
+<script is:inline>
+  const btn = document.getElementById('hamburgerBtn');
+  const menu = document.getElementById('sideMenu');
+  const overlay = document.getElementById('sideMenuOverlay');
+  const close = document.getElementById('closeSideMenu');
+  function openM() { menu.style.transform='translateX(0)'; overlay.style.display='block'; }
+  function closeM() { menu.style.transform='translateX(100%)'; overlay.style.display='none'; }
+  btn?.addEventListener('click', openM);
+  close?.addEventListener('click', closeM);
+  overlay?.addEventListener('click', closeM);
+  document.querySelectorAll('.side-link').forEach(function(l) { l.addEventListener('click', closeM); });
+</script>

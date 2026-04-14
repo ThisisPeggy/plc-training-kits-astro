@@ -1,0 +1,17 @@
+---
+import { type Lang } from '../i18n/config';
+import { t } from '../i18n/utils';
+
+type Props = { lang: Lang };
+const { lang } = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div>
+      <strong>{t(lang, 'footer.brand')}</strong>
+      <p>{t(lang, 'footer.desc')}</p>
+    </div>
+    <a class="button button--secondary" href="mailto:peggy@kernal-automation.com">peggy@kernal-automation.com</a>
+  </div>
+</footer>

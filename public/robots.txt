@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://plc-training-kits.tech/sitemap-index.xml
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

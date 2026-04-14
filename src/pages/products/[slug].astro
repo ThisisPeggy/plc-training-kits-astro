@@ -1,0 +1,128 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { products } from '../../data/products';
+
+export function getStaticPaths() {
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+const related = products.filter((item) => item.category === product.category && item.slug !== product.slug).slice(0, 3);
+const isYoutube =
+  typeof product.videoUrl === 'string' &&
+  (product.videoUrl.includes('youtube.com') || product.videoUrl.includes('youtu.be'));
+const youtubeEmbed = isYoutube
+  ? product.videoUrl!
+      .replace('youtu.be/', 'youtube.com/embed/')
+      .replace('watch?v=', 'embed/')
+  : undefined;
+---
+
+<SiteLayout title={`${product.name} | PLC Training Kits`} description={product.description} image={product.image}>
+  <section class="product-page">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">Home</a> / <a href={product.category === 'control-cabinets' ? '/#cabinets' : '/#products'}>{product.category === 'control-cabinets' ? 'Control Cabinets' : 'Training Kits'}</a> / <span>{product.shortName}</span>
+      </div>
+      <div class="product-shell">
+        <div class="product-column">
+          <div class="product-panel product-media">
+            <img src={product.image} alt={product.name} />
+          </div>
+          {product.videoUrl && (
+            <div class="product-panel product-video">
+              <div class="product-video__head">
+                <h2>Video</h2>
+                <p>Product demo or training overview.</p>
+              </div>
+              {isYoutube ? (
+                <div class="video-frame">
+                  <iframe
+                    src={youtubeEmbed}
+                    title={`${product.name} video`}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  />
+                </div>
+              ) : (
+                <video controls preload="metadata" poster={product.videoPoster}>
+                  <source src={product.videoUrl} />
+                </video>
+              )}
+            </div>
+          )}
+          <div class="product-panel product-summary">
+            <div class="product-summary__row">
+              <span>Brand</span>
+              <strong>{product.brand}</strong>
+            </div>
+            <div class="product-summary__row">
+              <span>Series</span>
+              <strong>{product.series}</strong>
+            </div>
+            <div class="product-summary__row">
+              <span>Price</span>
+              <strong>{product.priceLabel}</strong>
+            </div>
+          </div>
+        </div>
+        <div class="product-panel product-copy">
+          <span class={`tag tag--${product.category}`}>{product.brand}</span>
+          <h1>{product.name}</h1>
+          <p class="product-kicker">{product.intro}</p>
+          <div class="product-meta">
+            <div class="price">{product.priceLabel}</div>
+            <span class="product-meta__series">{product.series}</span>
+          </div>
+          <p>{product.description}</p>
+          <div class="sales-panel">
+            <h2>What you get</h2>
+            <ul class="sales-panel__list">
+              <li>Pre-wired equipment ready for practical training</li>
+              <li>User manual, wiring guidance, and product support</li>
+              <li>Global shipping and customization on request</li>
+            </ul>
+          </div>
+          <ul class="feature-list">
+            {product.features.map((feature) => <li>{feature}</li>)}
+          </ul>
+          <div class="product-note">
+            Complete hardware setup, documentation, and support for classroom or training-room use.
+          </div>
+          <div class="product-actions">
+            <a class="button button--primary" href={`https://wa.me/8617612051841?text=${encodeURIComponent(`Hi Peggy, I'm interested in the ${product.name}.`)}`} target="_blank">WhatsApp Peggy</a>
+            <a class="button button--secondary" href="mailto:peggy@kernal-automation.com">Email Peggy</a>
+            <a class="button button--secondary" href={product.category === 'control-cabinets' ? '/#cabinets' : '/#products'}>Back to {product.category === 'control-cabinets' ? 'cabinets' : 'training kits'}</a>
+          </div>
+        </div>
+      </div>
+      {related.length > 0 && (
+        <div class="section section--related">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title">Related Products</h2>
+              <p class="section-copy">Other products in the same family.</p>
+            </div>
+          </div>
+          <div class="related-grid">
+            {related.map((item) => (
+              <a class="related-card" href={`/products/${item.slug}/`}>
+                <span class={`tag tag--${item.category}`}>{item.series}</span>
+                <h3>{item.shortName}</h3>
+                <p>{item.intro}</p>
+                <div class="card__footer">
+                  <div class="price">{item.priceLabel}</div>
+                  <span class="card__link">Open</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+</SiteLayout>

@@ -1,0 +1,269 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { products } from '../data/products';
+
+const siemensProducts = products.filter((product) => product.category === 'siemens');
+const mitsubishiProducts = products.filter((product) => product.category === 'mitsubishi');
+const abProducts = products.filter((product) => product.category === 'allen-bradley');
+const cabinetProducts = products.filter((product) => product.category === 'control-cabinets');
+const heroProduct = siemensProducts[0];
+const heroProductImage = '/assets/15 Siemens S7-1200 PLC & Frequency Inverter Practical Training Kit/2.jpg';
+const featuredByBrand = {
+  siemens: siemensProducts[0],
+  mitsubishi: mitsubishiProducts[0],
+  ab: abProducts[1] ?? abProducts[0],
+} as const;
+const featuredCabinet = cabinetProducts[0];
+const quickBrandLinks = [
+  { label: 'Siemens', href: '#cat-siemens' },
+  { label: 'Mitsubishi', href: '#cat-mitsubishi' },
+  { label: 'Allen-Bradley', href: '#cat-ab' },
+  { label: 'Cabinets', href: '#cabinets' },
+];
+const productSellingPoints = [
+  {
+    title: 'Built for teaching',
+    description: 'Pre-wired kits that let students practice programming, wiring, communication, PID, and motion on real hardware.',
+  },
+  {
+    title: 'Easy to compare',
+    description: 'Browse by Siemens, Mitsubishi, Allen-Bradley, or cabinet type and open the full product page in one click.',
+  },
+  {
+    title: 'Easy to order',
+    description: 'Ask Peggy for catalog, lead time, shipping, or customization without going through a complicated quote process.',
+  },
+];
+const platformCards = [
+  {
+    key: 'siemens',
+    title: 'Siemens S7-1200',
+    count: siemensProducts.length,
+    intro: 'Communication, PID, motion, pneumatic, and inverter kits.',
+    product: featuredByBrand.siemens,
+  },
+  {
+    key: 'mitsubishi',
+    title: 'Mitsubishi FX5U',
+    count: mitsubishiProducts.length,
+    intro: 'Hands-on Mitsubishi training kits for motor control and process learning.',
+    product: featuredByBrand.mitsubishi,
+  },
+  {
+    key: 'ab',
+    title: 'Allen-Bradley',
+    count: abProducts.length,
+    intro: 'Micro850 and MicroLogix platforms for labs needing AB-based training.',
+    product: featuredByBrand.ab,
+  },
+];
+const homeFeaturedProduct = heroProduct;
+
+const reasons = [
+  ['Complete Documentation', 'Every kit includes detailed manuals and wiring diagrams ready for classroom use.'],
+  ['Training Videos', 'Step-by-step video tutorials covering the main training tasks.'],
+  ['Customization', 'Need different configurations? The engineering team can customize kits for you.'],
+  ['Technical Support', 'Direct access to engineers for technical and product questions.'],
+  ['Global Shipping', 'DHL, FedEx, air freight, or sea freight to 50+ countries.'],
+  ['Bulk Pricing', 'Special pricing for schools and training centers ordering multiple units.'],
+];
+
+const faqs = [
+  ['What is included in each training kit?', 'Each kit includes the hardware, a complete user manual with wiring diagrams, step-by-step training videos, and a 1-year warranty.'],
+  ['Can you customize the training kit?', 'Yes. Kits can be customized with different PLC brands, component changes, and curriculum-matched configurations.'],
+  ['What payment methods do you accept?', 'T/T bank transfer, PayPal, and Alipay. Payment is typically 100% in advance.'],
+  ['How long is shipping?', 'Express shipping is usually 5-7 days, air freight 7-14 days, and sea freight 30-45 days depending on route and terms.'],
+  ['Do you offer bulk discounts?', 'Yes. Schools and training centers ordering multiple units can qualify for special pricing.'],
+  ['What does the 1-year warranty cover?', 'The warranty covers manufacturing defects in hardware components. Damage from misuse, incorrect wiring, or liquid exposure is not included.'],
+  ['What is your return or exchange policy?', 'If a kit arrives damaged or missing parts, contact us within 7 days with photos and we will arrange replacement parts or exchange support.'],
+];
+---
+
+<SiteLayout
+  title="PLC Training Kits & Control Cabinets | Siemens, Mitsubishi, Allen-Bradley"
+  description="Professional PLC training kits and control cabinets for Siemens, Mitsubishi, and Allen-Bradley platforms. Complete equipment with documentation, videos, and global shipping."
+>
+  <section class="home-hero" id="overview">
+    <div class="container home-hero__inner">
+      <div class="home-hero__content">
+        <div class="home-hero__copy">
+          <span class="hero-badge">Professional PLC Training Kits</span>
+          <h1>Training kits built around the hardware itself.</h1>
+          <p class="home-hero__desc">
+            Siemens, Mitsubishi, Allen-Bradley, and compact control cabinets for labs, schools, and practical automation teaching.
+          </p>
+          <div class="home-hero__actions">
+            <a class="button button--primary" href="#products">Browse Training Kits</a>
+            <a class="button button--secondary" href={`https://wa.me/8617612051841?text=${encodeURIComponent(`Hi Peggy, please send me your PLC training kit catalog.`)}`} target="_blank">Get Catalog</a>
+          </div>
+        </div>
+        <div class="home-hero__visual">
+          <div class="hero-product-showcase">
+            <div class="hero-product-showcase__frame">
+              <img src={heroProductImage} alt={heroProduct.name} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-bar">
+    <div class="container stats-grid">
+      <div class="stat-box">
+        <strong>23</strong>
+        <span>Total products</span>
+      </div>
+      <div class="stat-box">
+        <strong>15</strong>
+        <span>PLC training kits</span>
+      </div>
+      <div class="stat-box">
+        <strong>8</strong>
+        <span>Control cabinets</span>
+      </div>
+      <div class="stat-box">
+        <strong>20+</strong>
+        <span>Countries served</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section platforms-section" id="platforms">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">PLC Training Kits</h2>
+        <p class="section-subtitle">Choose your PLC platform to view all available training kits.</p>
+      </div>
+      <div class="selling-points">
+        {productSellingPoints.map((point) => (
+          <article class="selling-point">
+            <h3>{point.title}</h3>
+            <p>{point.description}</p>
+          </article>
+        ))}
+      </div>
+      <div class="platform-overview">
+        {platformCards.map((card) => (
+          <a class={`platform-overview__card platform-overview__card--${card.key}`} href={card.key === 'siemens' ? '/products/siemens/' : card.key === 'mitsubishi' ? '/products/mitsubishi/' : '/products/allen-bradley/'}>
+            <div class="platform-overview__copy">
+              <span>{card.count} kits</span>
+              <h3>{card.title}</h3>
+              <p>{card.intro}</p>
+            </div>
+            <img src={card.product.image} alt={card.product.name} />
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section cabinets-section" id="cabinets">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Control Cabinets</h2>
+        <p class="section-subtitle">Compact control equipment for motor control and process control training.</p>
+      </div>
+      <div class="cabinets-grid">
+        {cabinetProducts.map((product) => (
+          <a class="cabinet-card" href={`/products/${product.slug}/`}>
+            <div class="cabinet-image">
+              <img src={product.image} alt={product.name} />
+            </div>
+            <div class="cabinet-content">
+              <h3 class="cabinet-title">{product.shortName}</h3>
+              <div class="cabinet-card__footer">
+                <div class="cabinet-price">{product.priceLabel}</div>
+                <span class="cabinet-card__cta">View Details</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section why-section" id="why-us">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Why Choose Us</h2>
+        <p class="section-subtitle">Everything needed to help a school, lab, or trainer place an order with confidence.</p>
+      </div>
+      <div class="why-grid">
+        {reasons.map(([title, description]) => (
+          <article class="why-card">
+            <h3 class="why-title">{title}</h3>
+            <p class="why-desc">{description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">FAQ</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map(([question, answer]) => (
+          <details class="faq-item">
+            <summary>{question}</summary>
+            <div class="faq-answer">{answer}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section process-section" id="how-to-order">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">How to Order</h2>
+        <p class="section-subtitle">A simple order flow for catalog request, quote confirmation, payment, and shipment.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <div class="step-title">Inquiry</div>
+          <div class="step-desc">Contact Peggy</div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <div class="step-title">Quote</div>
+          <div class="step-desc">Receive PI</div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <div class="step-title">Payment</div>
+          <div class="step-desc">T/T or PayPal</div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <div class="step-title">Shipping</div>
+          <div class="step-desc">Track shipment</div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">5</div>
+          <div class="step-title">Support</div>
+          <div class="step-desc">Tech support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section" id="contact">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Need a custom configuration?</h2>
+        <p>Kernal Automation can customize training kits for your curriculum, lab setup, or customer project requirements.</p>
+        <div class="cta-box__actions">
+          <a class="button button--primary" href="https://wa.me/8617612051841?text=Hi%20Peggy%2C%20I%20need%20a%20custom%20PLC%20training%20kit." target="_blank">Request Custom Quote</a>
+          <a class="button button--secondary" href="mailto:peggy@kernal-automation.com">peggy@kernal-automation.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</SiteLayout>
