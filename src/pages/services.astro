@@ -1,0 +1,309 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const services = [
+  {
+    title: 'PLC Programming Service',
+    desc: 'Custom PLC programming for your automation projects. Our engineers have extensive experience with Siemens, Mitsubishi, Allen-Bradley, and more.',
+    details: 'Whether you need a complete PLC program developed from scratch, modifications to an existing system, or help debugging a tricky issue — our team can assist remotely or on-site.',
+    items: ['Siemens TIA Portal / STEP 7', 'Mitsubishi GX Works 3', 'Allen-Bradley Connected Components Workbench', 'HMI Screen Design & Integration', 'Remote Debugging & Commissioning Support'],
+  },
+  {
+    title: 'Automation Software Sales',
+    desc: 'Licensed automation software at competitive prices. We provide genuine software with proper licensing for your organization.',
+    details: 'Running a training lab or engineering department? We supply properly licensed software so your team can program, simulate, and commission with confidence.',
+    items: ['Siemens TIA Portal (all editions)', 'Mitsubishi GX Works 3', 'HMI / SCADA Software', 'Simulation & Virtual Commissioning Tools', 'Training & Installation Support'],
+  },
+  {
+    title: 'Custom Kit Design',
+    desc: 'We tailor training kits to match your specific curriculum and requirements. Our engineering team works with you from concept to delivery.',
+    details: 'Need a training kit that doesn\'t exist in our catalog? Tell us your curriculum requirements and we\'ll design a custom solution — from PLC brand selection to enclosure and wiring.',
+    items: ['Custom PLC Brand & Model Selection', 'Component Add/Remove/Swap', 'Custom Enclosure & Panel Layout', 'Curriculum-Matched Configuration', 'Bulk Orders & Volume Pricing'],
+  },
+];
+
+const process = [
+  { step: '1', title: 'Tell Us Your Needs', desc: 'Describe your project, curriculum, or software requirements.' },
+  { step: '2', title: 'Get a Proposal', desc: 'We provide a detailed proposal with scope, timeline, and pricing.' },
+  { step: '3', title: 'We Deliver', desc: 'Our engineers execute and deliver with full documentation and support.' },
+];
+---
+
+<SiteLayout
+  title="Services | PLC Programming, Automation Software & Custom Kit Design"
+  description="Professional automation services: custom PLC programming, licensed automation software sales, and tailored training kit design for schools and enterprises."
+  canonicalPath="/services/"
+>
+  <!-- Hero -->
+  <section class="svc-hero">
+    <div class="container">
+      <div class="breadcrumb" style="color:rgba(255,255,255,0.7);">
+        <a href="/" style="color:rgba(255,255,255,0.7);">Home</a> / <span>Services</span>
+      </div>
+      <h1>Automation Services</h1>
+      <p class="svc-hero__desc">
+        Beyond training kits — our engineering team provides PLC programming, licensed software, and custom kit design for schools, labs, and industrial projects.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="svc-content">
+    <div class="container">
+      {services.map((svc, i) => (
+        <article class={`svc-block ${i % 2 === 1 ? 'svc-block--alt' : ''}`}>
+          <div class="svc-block__number">{String(i + 1).padStart(2, '0')}</div>
+          <div class="svc-block__body">
+            <h2 class="svc-block__title">{svc.title}</h2>
+            <p class="svc-block__desc">{svc.desc}</p>
+            <p class="svc-block__detail">{svc.details}</p>
+            <ul class="svc-block__list">
+              {svc.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="svc-process">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Simple process from inquiry to delivery</p>
+      </div>
+      <div class="svc-process__grid">
+        {process.map((p) => (
+          <div class="svc-process__step">
+            <div class="svc-process__num">{p.step}</div>
+            <h3>{p.title}</h3>
+            <p>{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="svc-cta">
+    <div class="container">
+      <div class="svc-cta__box">
+        <h2>Ready to get started?</h2>
+        <p>Tell us what you need — Peggy will connect you with the right engineer.</p>
+        <div class="svc-cta__actions">
+          <a class="button button--primary" href="https://wa.me/8617612051841?text=Hi%20Peggy%2C%20I'm%20interested%20in%20your%20automation%20services." target="_blank">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Peggy
+          </a>
+          <a class="button button--secondary" href="mailto:peggy@kernal-automation.com">Email Peggy</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</SiteLayout>
+
+<style>
+  .svc-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff;
+    padding: 3rem 0 2.5rem;
+  }
+
+  .svc-hero h1 {
+    margin: 0.75rem 0 0.75rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  .svc-hero__desc {
+    margin: 0;
+    max-width: 55ch;
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.7;
+  }
+
+  .svc-content {
+    padding: 3rem 0 1rem;
+  }
+
+  .svc-block {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 1.5rem;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition: box-shadow 0.2s;
+  }
+
+  .svc-block:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  }
+
+  .svc-block--alt {
+    background: var(--bg);
+  }
+
+  .svc-block__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--primary);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .svc-block__title {
+    margin: 0 0 0.6rem;
+    color: var(--primary);
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  .svc-block__desc {
+    margin: 0 0 0.5rem;
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .svc-block__detail {
+    margin: 0 0 1rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  .svc-block__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 1.5rem;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .svc-block__list li {
+    position: relative;
+    padding-left: 1.1rem;
+    color: var(--text);
+    font-size: 0.92rem;
+  }
+
+  .svc-block__list li::before {
+    content: '';
+    position: absolute;
+    top: 0.55rem;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--primary);
+  }
+
+  .svc-process {
+    padding: 2rem 0 3rem;
+  }
+
+  .svc-process__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .svc-process__step {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+  }
+
+  .svc-process__num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin: 0 auto 1rem;
+    border-radius: 999px;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .svc-process__step h3 {
+    margin: 0 0 0.4rem;
+    color: var(--primary);
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .svc-process__step p {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 0.92rem;
+  }
+
+  .svc-cta {
+    padding: 0 0 4rem;
+  }
+
+  .svc-cta__box {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    border-radius: 16px;
+    color: #fff;
+  }
+
+  .svc-cta__box h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.75rem;
+    font-weight: 800;
+  }
+
+  .svc-cta__box p {
+    margin: 0 0 1.5rem;
+    opacity: 0.9;
+  }
+
+  .svc-cta__actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .svc-hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .svc-block {
+      grid-template-columns: 1fr;
+    }
+
+    .svc-block__list {
+      grid-template-columns: 1fr;
+    }
+
+    .svc-process__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .svc-cta__box {
+      padding: 2rem 1.25rem;
+    }
+  }
+</style>

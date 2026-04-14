@@ -1,5 +1,68 @@
 export type ProductCategory = 'siemens' | 'mitsubishi' | 'allen-bradley' | 'control-cabinets';
 
+export type CategoryMeta = {
+  slug: string;
+  category: ProductCategory;
+  title: string;
+  pageTitle: string;
+  description: string;
+  intro: string;
+  gridClass: 'products-grid' | 'cabinets-grid';
+  cardStyle: 'product' | 'cabinet';
+  brandClass?: string;
+  whatsappText: string;
+};
+
+export const categories: CategoryMeta[] = [
+  {
+    slug: 'siemens',
+    category: 'siemens',
+    title: 'Siemens S7-1200 Training Kits',
+    pageTitle: 'Siemens S7-1200 PLC Training Kits | Professional Training Equipment',
+    description: 'Complete range of Siemens S7-1200 PLC training kits for communication, PID control, motion control, pneumatic systems, and VFD integration.',
+    intro: 'Professional training equipment for Siemens S7-1200 PLC platform. Complete kits for communication, PID control, motion control, pneumatic systems, and VFD integration.',
+    gridClass: 'products-grid',
+    cardStyle: 'product',
+    brandClass: 'siemens',
+    whatsappText: 'Hi Peggy, I need help choosing a Siemens training kit.',
+  },
+  {
+    slug: 'mitsubishi',
+    category: 'mitsubishi',
+    title: 'Mitsubishi FX5U Training Kits',
+    pageTitle: 'Mitsubishi FX5U PLC Training Kits | Professional Training Equipment',
+    description: 'Complete range of Mitsubishi FX5U PLC training kits for motor control, communication, PID control, motion control, and pneumatic systems.',
+    intro: 'Professional training equipment for Mitsubishi FX5U PLC platform. Complete kits for motor control, communication, PID control, motion control, and pneumatic systems.',
+    gridClass: 'products-grid',
+    cardStyle: 'product',
+    brandClass: 'mitsubishi',
+    whatsappText: 'Hi Peggy, I need help choosing a Mitsubishi training kit.',
+  },
+  {
+    slug: 'allen-bradley',
+    category: 'allen-bradley',
+    title: 'Allen-Bradley Training Kits',
+    pageTitle: 'Allen-Bradley PLC Training Kits | Micro850 & MicroLogix Training Equipment',
+    description: 'Complete range of Allen-Bradley PLC training kits for Micro850 and MicroLogix platforms. PID control, VFD integration, communication, and pneumatic systems.',
+    intro: 'Professional training equipment for Allen-Bradley Micro850 and MicroLogix platforms. Complete kits for PID control, VFD integration, communication, and pneumatic systems.',
+    gridClass: 'products-grid',
+    cardStyle: 'product',
+    brandClass: 'ab',
+    whatsappText: 'Hi Peggy, I need help choosing an Allen-Bradley training kit.',
+  },
+  {
+    slug: 'cabinets',
+    category: 'control-cabinets',
+    title: 'Control Cabinets',
+    pageTitle: 'Control Cabinets | Motor Control & Process Control Training Equipment',
+    description: 'Compact control cabinets for motor control and process control training. DOL starters, star-delta starters, PID temperature control, and liquid level control.',
+    intro: 'Compact control equipment for motor control and process control training. Smaller, lower-cost products for motor starter, liquid level, temperature, and environmental control practice.',
+    gridClass: 'cabinets-grid',
+    cardStyle: 'cabinet',
+    whatsappText: 'Hi Peggy, I need help choosing a control cabinet.',
+  },
+];
+
 export type Product = {
   slug: string;
   name: string;
@@ -10,11 +73,35 @@ export type Product = {
   sku: string;
   priceLabel: string;
   priceValue: number;
-  image: string;
+  image: ImageMetadata;
   description: string;
   intro: string;
   features: string[];
 };
+
+import siemensVfd from '../images/products/siemens-s7-1200-vfd-training-kit.jpg';
+import s7Comm from '../images/products/s7-1200-communication-training-kit.jpg';
+import s7Pid from '../images/products/s7-1211c-temperature-pid-kit.jpg';
+import s7Motion from '../images/products/s7-1215c-2-axis-motion-kit.jpg';
+import s7Pneumatic from '../images/products/s7-1200-pneumatic-control-system.jpg';
+import fx5uVfd from '../images/products/fx5u-fr-d720s-vfd-kit.jpg';
+import fx5uComm from '../images/products/fx5u-cc-link-communication-kit.jpg';
+import fx5uPid from '../images/products/fx5u-temperature-pid-kit.jpg';
+import fx5uMotion from '../images/products/fx5u-2-axis-motion-kit.jpg';
+import fx5uPneumatic from '../images/products/fx5u-pneumatic-control-system.jpg';
+import abPid from '../images/products/ab-850-series-temperature-pid-training-kit.jpg';
+import abVfd from '../images/products/ab-micro850-powerflex-22f-vfd-training-kit.jpg';
+import abPneumatic from '../images/products/ab-micro850-pneumatic-control-equipment.jpg';
+import abComm from '../images/products/ab-micro-850-communication-training-kit.jpg';
+import abMicrologix from '../images/products/ab-micrologix-1400-pneumatic-control-equipment.jpg';
+import pidCabinet from '../images/products/pid-temperature-control-cabinet.png';
+import liquidCabinet from '../images/products/liquid-level-control-cabinet.png';
+import vfdCabinet from '../images/products/vfd-water-supply-cabinet.png';
+import dolPanel from '../images/products/dol-motor-starter-control-panel.png';
+import starDelta from '../images/products/star-delta-reduced-voltage-starter-control-panel.png';
+import fwdRev from '../images/products/motor-forward-reverse-control-box.png';
+import motorTraining from '../images/products/three-phase-motor-training-set.jpg';
+import tempHumidity from '../images/products/intelligent-temperature-and-humidity-control-box.png';
 
 export const products: Product[] = [
   {
@@ -27,7 +114,7 @@ export const products: Product[] = [
     sku: 'S7-1200-VFD-KIT',
     priceLabel: '$1,150',
     priceValue: 1150,
-    image: '/assets/15 Siemens S7-1200 PLC & Frequency Inverter Practical Training Kit/2.jpg',
+    image: siemensVfd,
     intro: 'Siemens S7-1200 PLC with V20 VFD for practical motor control and inverter training.',
     description: 'A complete Siemens training platform for learning PLC programming, motor control, inverter integration, and industrial wiring. Suitable for schools, labs, and enterprise training centers.',
     features: ['Siemens S7-1200 CPU with V20 VFD', 'Complete wiring and installation', 'User manual with wiring diagrams', 'Training videos included', '1-year warranty and global shipping'],
@@ -42,7 +129,7 @@ export const products: Product[] = [
     sku: 'S7-1200-COMM-KIT',
     priceLabel: '$720',
     priceValue: 720,
-    image: '/assets/14 Siemens S7-1200 and Remote Modules Communication Training Kit/2.jpg',
+    image: s7Comm,
     intro: 'Communication training kit with Siemens PLC and remote modules.',
     description: 'Designed for practical communication exercises between PLCs and remote modules. Useful for teaching industrial networking, signal exchange, and remote I/O integration.',
     features: ['Siemens S7-1200 platform', 'Remote module communication practice', 'Industrial automation wiring exercises', 'Detailed manuals and training support', 'Pre-wired and ready to use'],
@@ -57,7 +144,7 @@ export const products: Product[] = [
     sku: 'S7-1211C-PID-KIT',
     priceLabel: '$580',
     priceValue: 580,
-    image: '/assets/16 1200 Series Temperature PID Control Training Kit/2.jpg',
+    image: s7Pid,
     intro: 'Temperature PID trainer for Siemens S7-1211C closed-loop control exercises.',
     description: 'Covers temperature sensing, analog signals, PID parameter tuning, and closed-loop control. Ideal for process control education and applied industrial training.',
     features: ['Siemens S7-1211C platform', 'Temperature control and PID tuning', 'Manual and automatic control comparison', 'Hands-on process control learning', 'Pre-wired training setup'],
@@ -72,7 +159,7 @@ export const products: Product[] = [
     sku: 'S7-1215C-MOTION-KIT',
     priceLabel: '$1,880',
     priceValue: 1880,
-    image: '/assets/17 Two-axis_Interpolation_Motion Training Kit/2.jpg',
+    image: s7Motion,
     intro: 'Advanced Siemens motion training kit for interpolation and 2-axis control.',
     description: 'Built for motion control teaching with coordinated axis movement, interpolation logic, and practical mechanical control scenarios.',
     features: ['2-axis interpolation exercises', 'Suitable for advanced automation courses', 'Hands-on motion logic training', 'Integrated mechanical setup', 'Pre-wired and ready for teaching'],
@@ -87,7 +174,7 @@ export const products: Product[] = [
     sku: 'S7-1200-PNEUMATIC-KIT',
     priceLabel: '$1,520',
     priceValue: 1520,
-    image: '/assets/18 Siemens S7-1200 Pneumatic Component Timing Control System/2.jpg',
+    image: s7Pneumatic,
     intro: 'Pneumatic training system with Siemens PLC timing and sequencing exercises.',
     description: 'Combines cylinders, sensors, valve groups, and PLC control for practical pneumatic sequencing and timing education.',
     features: ['Pneumatic component timing control', 'Sensors, cylinders, and valve coordination', 'Suitable for practical classroom training', 'Modular exercise structure', 'Complete hardware and support materials'],
@@ -102,7 +189,7 @@ export const products: Product[] = [
     sku: 'FX5U-VFD-KIT',
     priceLabel: '$1,050',
     priceValue: 1050,
-    image: '/assets/20 MITSUBISHI FX5U PLC & FR-D720S Inverter Hands-On Training Kit/2.jpg',
+    image: fx5uVfd,
     intro: 'Mitsubishi PLC and inverter trainer for hands-on motor control practice.',
     description: 'A practical training set for learning Mitsubishi PLC programming, inverter setup, and integrated motor control tasks in lab and classroom environments.',
     features: ['Mitsubishi FX5U PLC with FR-D720S inverter', 'Motor control and VFD training', 'Ready-to-use wiring layout', 'Manuals and training videos included', 'Suitable for schools and enterprises'],
@@ -117,7 +204,7 @@ export const products: Product[] = [
     sku: 'FX5U-CCLINK-KIT',
     priceLabel: '$680',
     priceValue: 680,
-    image: '/assets/21 Mitsubishi Communication user manual/2.jpg',
+    image: fx5uComm,
     intro: 'Communication trainer focused on Mitsubishi FX5U and CC-Link networking.',
     description: 'Supports communication training around CC-Link and related industrial communication concepts using a Mitsubishi FX5U platform.',
     features: ['Mitsubishi FX5U communication exercises', 'CC-Link protocol training', 'Industrial signal exchange practice', 'Structured lab-ready setup', 'OEM and customization available'],
@@ -132,7 +219,7 @@ export const products: Product[] = [
     sku: 'FX5U-PID-KIT',
     priceLabel: '$550',
     priceValue: 550,
-    image: '/assets/23 MITSUBISHI PID FX5U-32MTDS-T01/2.jpg',
+    image: fx5uPid,
     intro: 'PID control training for Mitsubishi FX5U temperature applications.',
     description: 'Covers analog input and output practice, heating control, sensor feedback, and PID tuning for educational process control tasks.',
     features: ['Temperature control and PID tuning', 'Mitsubishi FX5U-32MT platform', 'Ideal for process automation training', 'Pre-wired and practical for classroom use', 'Documentation included'],
@@ -147,7 +234,7 @@ export const products: Product[] = [
     sku: 'FX5U-MOTION-KIT',
     priceLabel: '$1,750',
     priceValue: 1750,
-    image: '/assets/22 MITSUBISHI FX5U Two-axis_Interpolation_Motion Training Kit/4.jpg',
+    image: fx5uMotion,
     intro: '2-axis motion training platform for Mitsubishi interpolation control exercises.',
     description: 'An advanced motion control training unit for coordinated axis movement, interpolation practice, and hands-on mechanical control instruction.',
     features: ['2-axis interpolation exercises', 'Advanced motion control scenarios', 'Industrial-style practical setup', 'Suitable for higher-level automation labs', 'Plug-and-play hardware platform'],
@@ -162,7 +249,7 @@ export const products: Product[] = [
     sku: 'FX5U-PNEUMATIC-KIT',
     priceLabel: '$1,450',
     priceValue: 1450,
-    image: '/assets/19 Mitsubishi FX5U Pneumatic Component Timing Control System/3.jpg',
+    image: fx5uPneumatic,
     intro: 'Pneumatic timing control trainer built on Mitsubishi FX5U.',
     description: 'Supports timing logic, component coordination, and modular pneumatic exercises with a Mitsubishi FX5U PLC core.',
     features: ['Pneumatic timing and sequencing practice', 'FX5U-based control system', 'Supports disassembly and mode switching', 'Useful for lab and vocational training', 'Complete hardware package'],
@@ -177,7 +264,7 @@ export const products: Product[] = [
     sku: 'PID-AB2080-L50E',
     priceLabel: 'From $318.24',
     priceValue: 318.24,
-    image: '/assets/27 AB 850 Series Temperature PID Training Kit/1.jpg',
+    image: abPid,
     intro: 'AB PID trainer with T01, T02, and T03 options for temperature control education.',
     description: 'Supports manual heating adjustment and automatic PID closed-loop control. Suitable for PLC wiring, analog configuration, PID tuning, and fault diagnosis training.',
     features: ['T01, T02, and T03 configurations available', 'Core PLC: AB 2080-L50E-24QBB with analog modules', 'PT100 sensor, SSR, display, heating module, and power supply', 'Optional 7-inch AB HMI on T03', 'Pre-wired and plug-and-play'],
@@ -192,7 +279,7 @@ export const products: Product[] = [
     sku: 'AB-800-PLC-VFD-TK',
     priceLabel: '$1,230.60',
     priceValue: 1230.6,
-    image: '/assets/28 AB Micro850 PLC & PowerFlex 22F VFD Hands-On Training Kit/1.jpg',
+    image: abVfd,
     intro: 'AB hands-on VFD training kit with Micro850 PLC and PowerFlex inverter.',
     description: 'Combines PLC, HMI, analog I/O, and VFD control into a pre-wired training platform for motor control and industrial communication practice.',
     features: ['AB Micro850 2080-L50E-24QBB', '4-inch PanelView Component HMI', 'PowerFlex 22F VFD and motor set', 'Supports Modbus RTU and EtherNet/IP', 'Plug-and-play integrated system'],
@@ -207,7 +294,7 @@ export const products: Product[] = [
     sku: 'MICRO850-PTC',
     priceLabel: 'From $1,331.32',
     priceValue: 1331.32,
-    image: '/assets/29 AB Micro850 Pneumatic Component Timing Control Equipment/1.jpg',
+    image: abPneumatic,
     intro: 'Modular AB pneumatic trainer for timing, cylinders, and practical control exercises.',
     description: 'Built around the AB Micro850 platform with PTC01, PTC02, and PTC03 configurations for progressive pneumatic timing and sequencing training.',
     features: ['Three configurations from PTC01 to PTC03', 'Includes PLC, HMI, compressor, and pneumatic accessories', 'Covers sensors, solenoid valves, and cylinder coordination', 'Supports modular practical training', 'Ready to use after power-on'],
@@ -222,7 +309,7 @@ export const products: Product[] = [
     sku: 'COMMUNICATION-AB-01',
     priceLabel: '$1,644.97',
     priceValue: 1644.97,
-    image: '/assets/30 AB Micro 850 Communication Training Kit/1.jpg',
+    image: abComm,
     intro: 'Dual-PLC communication trainer with one-screen dual-control architecture.',
     description: 'Shows communication paths between two PLCs and a touchscreen while supporting switch control, analog acquisition, logic interlock, and array display exercises.',
     features: ['Two Micro850 PLCs and 2711R-T4T HMI', 'Includes 2080-IF2, 2080-OF2, and 2080-SERIALISOL', 'Supports Modbus and Ethernet communication', 'Useful for custom logic programming practice', 'Open hardware interface for expansion'],
@@ -237,7 +324,7 @@ export const products: Product[] = [
     sku: 'MICROLOGIX-1400-PTC',
     priceLabel: 'From $916.65',
     priceValue: 916.65,
-    image: '/assets/31 AB MicroLogix 1400 Pneumatic Component Timing Control Equipment/1.jpg',
+    image: abMicrologix,
     intro: 'MicroLogix 1400 pneumatic timing equipment for modular practical training.',
     description: 'Supports disassembly, assembly, timing adjustment, and pneumatic component control training with three configuration levels.',
     features: ['Three model configurations available', 'MicroLogix 1400 control platform', 'Air compressor and pneumatic accessories included', 'Suitable for sequencing and timing lessons', 'Plug-and-play classroom deployment'],
@@ -252,7 +339,7 @@ export const products: Product[] = [
     sku: 'CABINET-PID-TEMP',
     priceLabel: '$185',
     priceValue: 185,
-    image: '/assets/1 Automatic PID Temperature Control Cabinet/2.png',
+    image: pidCabinet,
     intro: 'Automatic PID temperature control cabinet for practical training and maintenance exercises.',
     description: 'A compact control cabinet built for PID temperature control training, wiring practice, and maintenance-focused instruction.',
     features: ['Automatic PID temperature control cabinet', 'Complete hardware setup', 'Detailed user manual with wiring diagrams', 'Step-by-step training videos', '1-year warranty and global shipping'],
@@ -267,7 +354,7 @@ export const products: Product[] = [
     sku: 'CABINET-LEVEL',
     priceLabel: '$125',
     priceValue: 125,
-    image: '/assets/2 Liquid Level Control Cabinet/图片 1.png',
+    image: liquidCabinet,
     intro: 'Industrial liquid level control cabinet with level sensors and control valves.',
     description: 'Designed for liquid level control training with sensors, valves, and practical control wiring.',
     features: ['Liquid level sensing and valve control setup', 'Ready-to-use cabinet for practical training', 'Detailed user manual with wiring diagrams', 'Step-by-step training videos', '1-year warranty and global shipping'],
@@ -282,7 +369,7 @@ export const products: Product[] = [
     sku: 'CABINET-VFD-WATER',
     priceLabel: '$580',
     priceValue: 580,
-    image: '/assets/10 Constant Pressure Water Supply Variable Frequency Drive Control Cabinet/图片 2.png',
+    image: vfdCabinet,
     intro: 'Constant pressure water supply control cabinet with integrated VFD inverter.',
     description: 'A professional automation training cabinet for constant-pressure water supply control, inverter operation, and VFD wiring practice.',
     features: ['Constant pressure water supply training setup', 'Integrated VFD inverter cabinet', 'Detailed user manual with wiring diagrams', 'Step-by-step training videos', '1-year warranty and global shipping'],
@@ -297,7 +384,7 @@ export const products: Product[] = [
     sku: 'CABINET-DOL',
     priceLabel: '$95',
     priceValue: 95,
-    image: '/assets/7 Direct-on-Line (DOL) Motor Starter Control Panel/图片 2.png',
+    image: dolPanel,
     intro: 'Direct-on-line motor starter panel for compact motor control training.',
     description: 'A practical DOL motor starter control panel for motor starting, safety circuit instruction, and entry-level motor control training.',
     features: ['Direct-on-line motor starter control panel', 'Compact format for education and training', 'Detailed user manual with wiring diagrams', 'Step-by-step training videos', '1-year warranty and global shipping'],
@@ -312,7 +399,7 @@ export const products: Product[] = [
     sku: 'CABINET-STAR-DELTA',
     priceLabel: '$145',
     priceValue: 145,
-    image: '/assets/8 Star-Delta Reduced Voltage Starter Control Panel/图片 1.png',
+    image: starDelta,
     intro: 'Star-delta starter panel for reduced-voltage motor starting practice.',
     description: 'Built for reduced-voltage motor starting lessons with star-delta control logic and wiring practice.',
     features: ['Star-delta reduced-voltage starter setup', 'Suitable for motor starting instruction', 'Detailed user manual with wiring diagrams', 'Step-by-step training videos', '1-year warranty and global shipping'],
@@ -327,7 +414,7 @@ export const products: Product[] = [
     sku: 'CABINET-FWD-REV',
     priceLabel: '$125',
     priceValue: 125,
-    image: '/assets/9 Motor forwardreverse control box/586164c1-75de-4963-bb0a-5b8643baf60b.png',
+    image: fwdRev,
     intro: 'Training box for motor forward and reverse direction control with safety circuits.',
     description: 'A motor direction control trainer for forward/reverse switching, interlock understanding, and practical safety circuit exercises.',
     features: ['Forward and reverse motor control training', 'Covers direction control and safety circuits', 'Detailed user manual with wiring diagrams', 'Step-by-step training videos', '1-year warranty and global shipping'],
@@ -342,7 +429,7 @@ export const products: Product[] = [
     sku: 'CABINET-MOTOR-TRAIN',
     priceLabel: '$280',
     priceValue: 280,
-    image: '/assets/26 Three-Phase Motor ForwardReverse Rotation Training Set/_DSC2836.jpg',
+    image: motorTraining,
     intro: 'Three-phase motor training set with forward and reverse rotation practice.',
     description: 'A complete three-phase motor control training set for rotation control, wiring practice, and foundational industrial motor training.',
     features: ['Three-phase motor forward/reverse rotation practice', 'Complete motor control training solution', 'Detailed user manual with wiring diagrams', 'Step-by-step training videos', '1-year warranty and global shipping'],
@@ -357,7 +444,7 @@ export const products: Product[] = [
     sku: 'CABINET-TEMP-HUM',
     priceLabel: '$165',
     priceValue: 165,
-    image: '/assets/11 Intelligent Temperature and Humidity Control Box/5AE33F6D1CD324BFBBFC421BBB6FE343.png',
+    image: tempHumidity,
     intro: 'Environmental control box for intelligent temperature and humidity training.',
     description: 'Supports sensor and control education around temperature and humidity management for environmental monitoring training.',
     features: ['Temperature and humidity control training setup', 'Sensor and environmental control education', 'Detailed user manual with wiring diagrams', 'Step-by-step training videos', '1-year warranty and global shipping'],

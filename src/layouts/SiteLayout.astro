@@ -1,17 +1,30 @@
 ---
 import '../styles/global.css';
+import '@fortawesome/fontawesome-free/css/fontawesome.min.css';
+import '@fortawesome/fontawesome-free/css/solid.min.css';
+import '@fortawesome/fontawesome-free/css/brands.min.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 type Props = {
   title?: string;
   description?: string;
   image?: string;
+  canonicalPath?: string;
+  schemaJsonLd?: object[];
 };
 
 const {
   title = 'PLC Training Kits & Control Cabinets | Siemens, Mitsubishi & Allen-Bradley',
   description = 'Professional PLC training kits and control cabinets for schools, labs, and enterprises. Siemens, Mitsubishi, Allen-Bradley, and practical motor-control products with global shipping.',
   image = '/assets/15 Siemens S7-1200 PLC & Frequency Inverter Practical Training Kit/2.jpg',
+  canonicalPath = '',
+  schemaJsonLd = [],
 } = Astro.props;
+
+const siteUrl = 'https://plc-training-kits.tech';
+const fullImage = image.startsWith('http') ? image : `${siteUrl}${encodeURI(image)}`;
+const canonicalUrl = canonicalPath ? `${siteUrl}${canonicalPath}` : `${siteUrl}/`;
 ---
 
 <!doctype html>
@@ -22,48 +35,45 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Peggy Chan, Kernal Automation" />
+    <meta name="msvalidate.01" content="F902455469F9DD5B4D85E3662D3FC213" />
+
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={fullImage} />
+    <meta property="og:site_name" content="Peggy's Automation Store" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image" content={fullImage} />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YQPZ0DS24Q"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-YQPZ0DS24Q');
+    </script>
+
+    {schemaJsonLd.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
   </head>
   <body>
-    <header class="site-header">
-      <div class="container site-header__inner">
-        <a class="brand" href="/">
-          <img src="/logo.png" alt="Peggy's Automation Store" />
-          <span>Peggy's Automation Store</span>
-        </a>
-        <nav class="nav">
-          <a href="/#products">Training Kits</a>
-          <a href="/#cabinets">Control Cabinets</a>
-          <a href="/#why-us">Why Us</a>
-          <a href="/#faq">FAQ</a>
-          <a href="/#how-to-order">How to Order</a>
-          <a href="/#contact">Contact</a>
-        </nav>
-        <a class="button button--secondary" href="https://wa.me/8617612051841?text=Hi%20Peggy%2C%20I%20need%20the%20latest%20PLC%20training%20kit%20catalog." target="_blank">Get Catalog</a>
-      </div>
-    </header>
+    <Header />
     <main>
       <slot />
     </main>
-    <footer class="site-footer">
-      <div class="container site-footer__inner">
-        <div>
-          <strong>Peggy's Automation Store</strong>
-          <p>PLC training kits and compact control cabinets for practical automation teaching, lab setup, and industrial training.</p>
-        </div>
-        <a class="button button--secondary" href="mailto:peggy@kernal-automation.com">peggy@kernal-automation.com</a>
-      </div>
-    </footer>
+    <Footer />
   </body>
 </html>

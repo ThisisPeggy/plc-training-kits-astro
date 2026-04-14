@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { products, categories } from '../../data/products';
+
+export function getStaticPaths() {
+  return categories.map((cat) => ({
+    params: { category: cat.slug },
+    props: { cat },
+  }));
+}
+
+const { cat } = Astro.props;
+const items = products.filter((p) => p.category === cat.category);
+const label = cat.category === 'control-cabinets' ? 'Control Cabinets' : 'Training Kits';
+---
+
+<SiteLayout
+  title={cat.pageTitle}
+  description={cat.description}
+  canonicalPath={`/products/${cat.slug}/`}
+>
+  <section class="product-list-page">
+    <div class="container">
+      <div class="page-header">
+        <div class="breadcrumb">
+          <a href="/">Home</a> / <span>{cat.title}</span>
+        </div>
+        <h1>{cat.title}</h1>
+        <p class="page-intro">{cat.intro}</p>
+        <div class="page-stats">
+          <span><strong>{items.length}</strong> {label}</span>
+          <span>Pre-wired & Ready to Use</span>
+          <span>Complete Documentation</span>
+        </div>
+      </div>
+
+      <div class={cat.gridClass}>
+        {items.map((product) => (
+          cat.cardStyle === 'product' ? (
+            <a class="product-card" href={`/products/${product.slug}/`}>
+              <div class="product-image">
+                <Image src={product.image} alt={product.name} width={400} height={300} loading="lazy" />
+              </div>
+              <div class="product-content">
+                <div class={`product-brand ${cat.brandClass}`}>{product.series}</div>
+                <h3 class="product-title">{product.shortName}</h3>
+                <p class="product-desc">{product.intro}</p>
+                <div class="product-card__footer">
+                  <div class="product-price">{product.priceLabel}</div>
+                  <span class="product-card__cta">View Details</span>
+                </div>
+              </div>
+            </a>
+          ) : (
+            <a class="cabinet-card" href={`/products/${product.slug}/`}>
+              <div class="cabinet-image">
+                <Image src={product.image} alt={product.name} width={300} height={220} loading="lazy" />
+              </div>
+              <div class="cabinet-content">
+                <h3 class="cabinet-title">{product.shortName}</h3>
+                <p class="cabinet-desc">{product.intro}</p>
+                <div class="cabinet-card__footer">
+                  <div class="cabinet-price">{product.priceLabel}</div>
+                  <span class="cabinet-card__cta">View Details</span>
+                </div>
+              </div>
+            </a>
+          )
+        ))}
+      </div>
+
+      <div class="page-cta">
+        <h2>Need help choosing the right {cat.category === 'control-cabinets' ? 'cabinet' : 'kit'}?</h2>
+        <p>Contact Peggy for product recommendations, customization options, and bulk pricing.</p>
+        <div class="page-cta__actions">
+          <a class="button button--primary" href={`https://wa.me/8617612051841?text=${encodeURIComponent(cat.whatsappText)}`} target="_blank">WhatsApp Peggy</a>
+          <a class="button button--secondary" href="mailto:peggy@kernal-automation.com">Email Peggy</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</SiteLayout>

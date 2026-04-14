@@ -16,7 +16,5 @@
       ]
     }
   ],
-  "rewrites": [
-    { "source": "/", "destination": "/en/" }
-  ]
+  "rewrites": []
 }
