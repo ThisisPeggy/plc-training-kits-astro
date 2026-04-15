@@ -1,46 +1,41 @@
-# Astro Starter Kit: Basics
+# PLC Training Kits Astro Site
 
-```sh
-npm create astro@latest -- --template basics
-```
+English marketing website for PLC training kits and automation services.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Tech Stack
 
-## 🚀 Project Structure
+- Astro 5
+- Static site output
+- Product data managed in `src/data/products.ts`
 
-Inside of your Astro project, you'll see the following folders and files:
+## Main Structure
 
 ```text
 /
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+|- public/                  # Static assets
+|- src/
+|  |- components/           # Shared UI components
+|  |- data/                 # Product and category data
+|  |- images/               # Product images used by Astro
+|  |- layouts/              # Shared page layout
+|  |- pages/                # Route pages
+|  `- styles/               # Global styles
+|- package.json
+`- vercel.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Commands
 
-## 🧞 Commands
+```sh
+npm install
+npm run dev
+npm run build
+npm run preview
+```
 
-All commands are run from the root of the project, from a terminal:
+## Notes
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Main product content lives in `src/data/products.ts`.
+- Product detail routes are generated from `src/pages/products/[slug].astro`.
+- Category routes are generated from `src/pages/products/[category].astro`.
+- Static build output is generated to `dist/`.

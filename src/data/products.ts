@@ -77,6 +77,11 @@ export type Product = {
   description: string;
   intro: string;
   features: string[];
+  specs?: Record<string, string>;
+  audience?: string;
+  faq?: { q: string; a: string }[];
+  videoUrl?: string;
+  videoPoster?: string;
 };
 
 import siemensVfd from '../images/products/siemens-s7-1200-vfd-training-kit.jpg';
@@ -118,6 +123,24 @@ export const products: Product[] = [
     intro: 'Siemens S7-1200 PLC with V20 VFD for practical motor control and inverter training.',
     description: 'A complete Siemens training platform for learning PLC programming, motor control, inverter integration, and industrial wiring. Suitable for schools, labs, and enterprise training centers.',
     features: ['Siemens S7-1200 CPU with V20 VFD', 'Complete wiring and installation', 'User manual with wiring diagrams', 'Training videos included', '1-year warranty and global shipping'],
+    specs: {
+      'PLC Model': 'Siemens S7-1200 (6ES7 214-1AG40-0XB0)',
+      'VFD': 'Siemens Sinamics V20 (0.37kW / 0.5HP)',
+      'Power Supply': 'AC 220V, 50/60Hz',
+      'I/O': '14 DI / 10 DO / 2 AI / 1 AO',
+      'Communication': 'PROFINET (Ethernet)',
+      'Motor': '3-phase induction motor included',
+      'Enclosure': 'Aluminum panel, pre-wired',
+      'Dimensions': 'Approx. 600 x 400 x 200 mm',
+      'Software': 'Siemens TIA Portal (not included)',
+      'Weight': 'Approx. 12 kg',
+    },
+    audience: 'Vocational schools, university automation labs, enterprise training centers, and self-learners preparing for Siemens PLC certification.',
+    faq: [
+      { q: 'Do I need to buy TIA Portal separately?', a: 'Yes. This kit requires Siemens TIA Portal for programming. You can use the free TIA Portal Basic edition or purchase the Professional edition through us.' },
+      { q: 'Is this kit suitable for beginners?', a: 'Yes. The kit comes with step-by-step manuals and training videos covering basic motor control to advanced VFD parameter configuration.' },
+      { q: 'Can I upgrade to a larger VFD later?', a: 'Yes. The wiring layout supports swapping the VFD. Contact us for compatible upgrade options.' },
+    ],
   },
   {
     slug: 's7-1200-communication-training-kit',
@@ -133,6 +156,18 @@ export const products: Product[] = [
     intro: 'Communication training kit with Siemens PLC and remote modules.',
     description: 'Designed for practical communication exercises between PLCs and remote modules. Useful for teaching industrial networking, signal exchange, and remote I/O integration.',
     features: ['Siemens S7-1200 platform', 'Remote module communication practice', 'Industrial automation wiring exercises', 'Detailed manuals and training support', 'Pre-wired and ready to use'],
+    specs: {
+      'PLC Model': 'Siemens S7-1200',
+      'Communication': 'PROFINET, Modbus TCP',
+      'Remote I/O': 'ET 200SP or equivalent',
+      'Power Supply': 'AC 220V, 50/60Hz',
+      'Software': 'Siemens TIA Portal (not included)',
+    },
+    audience: 'Intermediate to advanced students studying industrial networking, PROFINET, and remote I/O systems.',
+    faq: [
+      { q: 'What communication protocols does this kit cover?', a: 'This kit focuses on PROFINET and Modbus TCP communication between PLCs and remote I/O modules.' },
+      { q: 'Can I connect this to other Siemens PLCs?', a: 'Yes. The kit supports PROFINET networking, so you can connect additional S7-1200 or S7-1500 PLCs.' },
+    ],
   },
   {
     slug: 's7-1211c-temperature-pid-kit',
@@ -148,6 +183,21 @@ export const products: Product[] = [
     intro: 'Temperature PID trainer for Siemens S7-1211C closed-loop control exercises.',
     description: 'Covers temperature sensing, analog signals, PID parameter tuning, and closed-loop control. Ideal for process control education and applied industrial training.',
     features: ['Siemens S7-1211C platform', 'Temperature control and PID tuning', 'Manual and automatic control comparison', 'Hands-on process control learning', 'Pre-wired training setup'],
+    specs: {
+      'PLC Model': 'Siemens S7-1211C',
+      'Sensor': 'PT100 RTD',
+      'Analog I/O': '2 AI / 1 AO (built-in)',
+      'Heating': 'Resistive heater module',
+      'Display': 'Digital temperature display',
+      'Power Supply': 'AC 220V, 50/60Hz',
+      'Control': 'PID closed-loop',
+      'Software': 'Siemens TIA Portal (not included)',
+    },
+    audience: 'Students learning process control fundamentals, PID tuning, and analog signal handling.',
+    faq: [
+      { q: 'What type of PID control does this kit teach?', a: 'The kit covers both manual and automatic PID temperature control, including P, PI, and PID parameter tuning.' },
+      { q: 'Can I use this for other process variables?', a: 'The PID logic is transferable. The hardware is for temperature, but programming concepts apply to pressure, flow, and level control.' },
+    ],
   },
   {
     slug: 's7-1215c-2-axis-motion-kit',
@@ -163,6 +213,20 @@ export const products: Product[] = [
     intro: 'Advanced Siemens motion training kit for interpolation and 2-axis control.',
     description: 'Built for motion control teaching with coordinated axis movement, interpolation logic, and practical mechanical control scenarios.',
     features: ['2-axis interpolation exercises', 'Suitable for advanced automation courses', 'Hands-on motion logic training', 'Integrated mechanical setup', 'Pre-wired and ready for teaching'],
+    specs: {
+      'PLC Model': 'Siemens S7-1215C',
+      'Motion': '2-axis coordinated',
+      'Drivers': '2x stepper/servo drivers',
+      'I/O': '14 DI / 10 DO / 2 AI / 2 AO',
+      'Communication': 'PROFINET',
+      'Power Supply': 'AC 220V, 50/60Hz',
+      'Software': 'TIA Portal with Motion Control',
+    },
+    audience: 'Advanced students and engineers learning multi-axis motion control, interpolation, and positioning systems.',
+    faq: [
+      { q: 'Does this kit support linear interpolation?', a: 'Yes. The kit is designed for 2-axis coordinated movement including linear and circular interpolation exercises.' },
+      { q: 'What motors are included?', a: 'The kit includes stepper motors with drivers. Servo motor upgrade options are available on request.' },
+    ],
   },
   {
     slug: 's7-1200-pneumatic-control-system',
@@ -178,6 +242,18 @@ export const products: Product[] = [
     intro: 'Pneumatic training system with Siemens PLC timing and sequencing exercises.',
     description: 'Combines cylinders, sensors, valve groups, and PLC control for practical pneumatic sequencing and timing education.',
     features: ['Pneumatic component timing control', 'Sensors, cylinders, and valve coordination', 'Suitable for practical classroom training', 'Modular exercise structure', 'Complete hardware and support materials'],
+    specs: {
+      'PLC Model': 'Siemens S7-1200',
+      'Pneumatics': 'Double-acting cylinders, 5/2 solenoid valves, sensors',
+      'Air Supply': 'External compressor required (6-8 bar)',
+      'Power Supply': 'AC 220V, 50/60Hz',
+      'Software': 'Siemens TIA Portal (not included)',
+    },
+    audience: 'Students learning pneumatic automation, sequencing logic, and PLC-controlled pneumatic systems.',
+    faq: [
+      { q: 'Is an air compressor included?', a: 'No. The kit requires an external air compressor (6-8 bar). We can recommend compatible compressors.' },
+      { q: 'How many pneumatic stations are included?', a: 'The kit includes multiple cylinder stations for sequencing and timing exercises. Contact us for exact configurations.' },
+    ],
   },
   {
     slug: 'fx5u-fr-d720s-vfd-kit',
@@ -193,6 +269,20 @@ export const products: Product[] = [
     intro: 'Mitsubishi PLC and inverter trainer for hands-on motor control practice.',
     description: 'A practical training set for learning Mitsubishi PLC programming, inverter setup, and integrated motor control tasks in lab and classroom environments.',
     features: ['Mitsubishi FX5U PLC with FR-D720S inverter', 'Motor control and VFD training', 'Ready-to-use wiring layout', 'Manuals and training videos included', 'Suitable for schools and enterprises'],
+    specs: {
+      'PLC Model': 'Mitsubishi FX5U',
+      'VFD': 'Mitsubishi FR-D720S (0.4kW)',
+      'I/O': '16 DI / 16 DO (transistor)',
+      'Communication': 'Ethernet, RS-485',
+      'Motor': '3-phase motor included',
+      'Power Supply': 'AC 220V, 50/60Hz',
+      'Software': 'GX Works 3 (not included)',
+    },
+    audience: 'Schools and training centers teaching Mitsubishi PLC programming and VFD operation.',
+    faq: [
+      { q: 'What software do I need?', a: 'You need Mitsubishi GX Works 3 for PLC programming. We can provide licensed software at competitive prices.' },
+      { q: 'Can this kit connect to an HMI?', a: 'Yes. The FX5U supports Ethernet and RS-485 for connecting Mitsubishi GOT HMIs or third-party panels.' },
+    ],
   },
   {
     slug: 'fx5u-cc-link-communication-kit',
@@ -208,6 +298,17 @@ export const products: Product[] = [
     intro: 'Communication trainer focused on Mitsubishi FX5U and CC-Link networking.',
     description: 'Supports communication training around CC-Link and related industrial communication concepts using a Mitsubishi FX5U platform.',
     features: ['Mitsubishi FX5U communication exercises', 'CC-Link protocol training', 'Industrial signal exchange practice', 'Structured lab-ready setup', 'OEM and customization available'],
+    specs: {
+      'PLC Model': 'Mitsubishi FX5U',
+      'Communication': 'CC-Link, Ethernet',
+      'Modules': 'CC-Link master and remote I/O',
+      'Power Supply': 'AC 220V, 50/60Hz',
+      'Software': 'GX Works 3 (not included)',
+    },
+    audience: 'Students learning industrial fieldbus communication, CC-Link protocol, and network troubleshooting.',
+    faq: [
+      { q: 'What is CC-Link?', a: 'CC-Link is a fieldbus network standard by Mitsubishi, widely used in Asian manufacturing for connecting PLCs, drives, and remote I/O.' },
+    ],
   },
   {
     slug: 'fx5u-temperature-pid-kit',
@@ -223,6 +324,18 @@ export const products: Product[] = [
     intro: 'PID control training for Mitsubishi FX5U temperature applications.',
     description: 'Covers analog input and output practice, heating control, sensor feedback, and PID tuning for educational process control tasks.',
     features: ['Temperature control and PID tuning', 'Mitsubishi FX5U-32MT platform', 'Ideal for process automation training', 'Pre-wired and practical for classroom use', 'Documentation included'],
+    specs: {
+      'PLC Model': 'Mitsubishi FX5U-32MT',
+      'Sensor': 'PT100 or thermocouple',
+      'Analog I/O': 'Analog input/output modules',
+      'Heating': 'Resistive heater',
+      'Power Supply': 'AC 220V, 50/60Hz',
+      'Software': 'GX Works 3 (not included)',
+    },
+    audience: 'Students learning process control and PID algorithms on Mitsubishi platforms.',
+    faq: [
+      { q: 'How is this different from the Siemens PID kit?', a: 'Similar concept but uses Mitsubishi GX Works 3 and FX5U PID instructions. Ideal for Mitsubishi-based curricula.' },
+    ],
   },
   {
     slug: 'fx5u-2-axis-motion-kit',
@@ -238,6 +351,18 @@ export const products: Product[] = [
     intro: '2-axis motion training platform for Mitsubishi interpolation control exercises.',
     description: 'An advanced motion control training unit for coordinated axis movement, interpolation practice, and hands-on mechanical control instruction.',
     features: ['2-axis interpolation exercises', 'Advanced motion control scenarios', 'Industrial-style practical setup', 'Suitable for higher-level automation labs', 'Plug-and-play hardware platform'],
+    specs: {
+      'PLC Model': 'Mitsubishi FX5U-64MT',
+      'Motion': '2-axis coordinated (stepper)',
+      'Drivers': '2x stepper drivers',
+      'I/O': '32 DI / 32 DO (transistor)',
+      'Power Supply': 'AC 220V, 50/60Hz',
+      'Software': 'GX Works 3 (not included)',
+    },
+    audience: 'Advanced students learning positioning and multi-axis coordination on Mitsubishi platforms.',
+    faq: [
+      { q: 'Can I upgrade to servo motors?', a: 'Yes. The FX5U supports Mitsubishi MR-JE servo drives. Contact us for servo upgrade options.' },
+    ],
   },
   {
     slug: 'fx5u-pneumatic-control-system',
@@ -253,6 +378,17 @@ export const products: Product[] = [
     intro: 'Pneumatic timing control trainer built on Mitsubishi FX5U.',
     description: 'Supports timing logic, component coordination, and modular pneumatic exercises with a Mitsubishi FX5U PLC core.',
     features: ['Pneumatic timing and sequencing practice', 'FX5U-based control system', 'Supports disassembly and mode switching', 'Useful for lab and vocational training', 'Complete hardware package'],
+    specs: {
+      'PLC Model': 'Mitsubishi FX5U',
+      'Pneumatics': 'Cylinders, solenoid valves, sensors',
+      'Air Supply': 'External compressor required (6-8 bar)',
+      'Power Supply': 'AC 220V, 50/60Hz',
+      'Software': 'GX Works 3 (not included)',
+    },
+    audience: 'Students practicing pneumatic sequencing and timing control with Mitsubishi PLCs.',
+    faq: [
+      { q: 'Is this compatible with SMC or Festo components?', a: 'The kit uses standard pneumatic fittings. Additional SMC or Festo components can be integrated.' },
+    ],
   },
   {
     slug: 'ab-850-series-temperature-pid-training-kit',
@@ -268,6 +404,20 @@ export const products: Product[] = [
     intro: 'AB PID trainer with T01, T02, and T03 options for temperature control education.',
     description: 'Supports manual heating adjustment and automatic PID closed-loop control. Suitable for PLC wiring, analog configuration, PID tuning, and fault diagnosis training.',
     features: ['T01, T02, and T03 configurations available', 'Core PLC: AB 2080-L50E-24QBB with analog modules', 'PT100 sensor, SSR, display, heating module, and power supply', 'Optional 7-inch AB HMI on T03', 'Pre-wired and plug-and-play'],
+    specs: {
+      'PLC Model': 'AB 2080-L50E-24QBB (Micro850)',
+      'Configs': 'T01, T02, T03 (T03 with HMI)',
+      'Sensor': 'PT100 RTD',
+      'Analog': '2080-IF2, 2080-OF2',
+      'HMI': '7-inch AB touchscreen (T03)',
+      'Power Supply': 'AC 120/220V',
+      'Software': 'CCW (free)',
+    },
+    audience: 'Technical schools teaching Allen-Bradley PLC basics and process control.',
+    faq: [
+      { q: 'What is the difference between T01, T02, and T03?', a: 'T01 is basic PID. T02 adds SSR and display. T03 includes a 7-inch AB HMI for full visualization.' },
+      { q: 'Is the programming software free?', a: 'Yes. Connected Components Workbench (CCW) is free to download and use.' },
+    ],
   },
   {
     slug: 'ab-micro850-powerflex-22f-vfd-training-kit',
@@ -283,6 +433,19 @@ export const products: Product[] = [
     intro: 'AB hands-on VFD training kit with Micro850 PLC and PowerFlex inverter.',
     description: 'Combines PLC, HMI, analog I/O, and VFD control into a pre-wired training platform for motor control and industrial communication practice.',
     features: ['AB Micro850 2080-L50E-24QBB', '4-inch PanelView Component HMI', 'PowerFlex 22F VFD and motor set', 'Supports Modbus RTU and EtherNet/IP', 'Plug-and-play integrated system'],
+    specs: {
+      'PLC Model': 'AB 2080-L50E-24QBB (Micro850)',
+      'VFD': 'PowerFlex 22F',
+      'HMI': '4-inch PanelView Component',
+      'Communication': 'Modbus RTU, EtherNet/IP',
+      'Motor': 'Included',
+      'Power Supply': 'AC 120/220V',
+      'Software': 'CCW (free)',
+    },
+    audience: 'Schools and enterprises training on Allen-Bradley platforms with VFD and HMI integration.',
+    faq: [
+      { q: 'Does this kit support EtherNet/IP?', a: 'Yes. Both the Micro850 and PowerFlex 22F support EtherNet/IP for integrated communication.' },
+    ],
   },
   {
     slug: 'ab-micro850-pneumatic-control-equipment',
@@ -298,6 +461,18 @@ export const products: Product[] = [
     intro: 'Modular AB pneumatic trainer for timing, cylinders, and practical control exercises.',
     description: 'Built around the AB Micro850 platform with PTC01, PTC02, and PTC03 configurations for progressive pneumatic timing and sequencing training.',
     features: ['Three configurations from PTC01 to PTC03', 'Includes PLC, HMI, compressor, and pneumatic accessories', 'Covers sensors, solenoid valves, and cylinder coordination', 'Supports modular practical training', 'Ready to use after power-on'],
+    specs: {
+      'PLC Model': 'AB Micro850',
+      'Configs': 'PTC01, PTC02, PTC03',
+      'Pneumatics': 'Cylinders, valves, sensors',
+      'Compressor': 'Included',
+      'Power Supply': 'AC 120/220V',
+      'Software': 'CCW (free)',
+    },
+    audience: 'Progressive pneumatic training from beginner to advanced with Allen-Bradley controls.',
+    faq: [
+      { q: 'Which configuration should I choose?', a: 'PTC01 for basic pneumatic, PTC02 adds HMI, PTC03 is full-featured for advanced training.' },
+    ],
   },
   {
     slug: 'ab-micro-850-communication-training-kit',
@@ -313,6 +488,19 @@ export const products: Product[] = [
     intro: 'Dual-PLC communication trainer with one-screen dual-control architecture.',
     description: 'Shows communication paths between two PLCs and a touchscreen while supporting switch control, analog acquisition, logic interlock, and array display exercises.',
     features: ['Two Micro850 PLCs and 2711R-T4T HMI', 'Includes 2080-IF2, 2080-OF2, and 2080-SERIALISOL', 'Supports Modbus and Ethernet communication', 'Useful for custom logic programming practice', 'Open hardware interface for expansion'],
+    specs: {
+      'PLCs': '2x AB Micro850',
+      'HMI': 'AB 2711R-T4T',
+      'Analog': '2080-IF2, 2080-OF2',
+      'Serial': '2080-SERIALISOL',
+      'Communication': 'Modbus RTU, EtherNet/IP',
+      'Power Supply': 'AC 120/220V',
+      'Software': 'CCW (free)',
+    },
+    audience: 'Students learning multi-PLC communication, industrial protocols, and HMI integration.',
+    faq: [
+      { q: 'Why does this kit use two PLCs?', a: 'Two PLCs let you practice inter-PLC communication, data exchange, synchronization, and distributed control.' },
+    ],
   },
   {
     slug: 'ab-micrologix-1400-pneumatic-control-equipment',
@@ -328,6 +516,17 @@ export const products: Product[] = [
     intro: 'MicroLogix 1400 pneumatic timing equipment for modular practical training.',
     description: 'Supports disassembly, assembly, timing adjustment, and pneumatic component control training with three configuration levels.',
     features: ['Three model configurations available', 'MicroLogix 1400 control platform', 'Air compressor and pneumatic accessories included', 'Suitable for sequencing and timing lessons', 'Plug-and-play classroom deployment'],
+    specs: {
+      'PLC Model': 'AB MicroLogix 1400',
+      'Configs': '3 model options',
+      'Pneumatics': 'Compressor and accessories included',
+      'Power Supply': 'AC 120/220V',
+      'Software': 'RSLogix 500 / RSLogix Micro',
+    },
+    audience: 'Schools with existing MicroLogix curriculum needing hands-on pneumatic training.',
+    faq: [
+      { q: 'Is MicroLogix still supported?', a: 'MicroLogix 1400 is mature but still widely used in education with continued Rockwell support.' },
+    ],
   },
   {
     slug: 'pid-temperature-control-cabinet',
@@ -343,6 +542,16 @@ export const products: Product[] = [
     intro: 'Automatic PID temperature control cabinet for practical training and maintenance exercises.',
     description: 'A compact control cabinet built for PID temperature control training, wiring practice, and maintenance-focused instruction.',
     features: ['Automatic PID temperature control cabinet', 'Complete hardware setup', 'Detailed user manual with wiring diagrams', 'Step-by-step training videos', '1-year warranty and global shipping'],
+    specs: {
+      'Control': 'PID automatic temperature',
+      'Sensor': 'Temperature sensor included',
+      'Power Supply': 'AC 220V, 50/60Hz',
+      'Enclosure': 'Compact metal cabinet',
+    },
+    audience: 'Entry-level students learning temperature control and PID concepts.',
+    faq: [
+      { q: 'Does this include a PLC?', a: 'No. This is a standalone PID controller cabinet. For PLC-based PID, see our PLC training kits.' },
+    ],
   },
   {
     slug: 'liquid-level-control-cabinet',
@@ -358,6 +567,16 @@ export const products: Product[] = [
     intro: 'Industrial liquid level control cabinet with level sensors and control valves.',
     description: 'Designed for liquid level control training with sensors, valves, and practical control wiring.',
     features: ['Liquid level sensing and valve control setup', 'Ready-to-use cabinet for practical training', 'Detailed user manual with wiring diagrams', 'Step-by-step training videos', '1-year warranty and global shipping'],
+    specs: {
+      'Control': 'Level sensing and valve control',
+      'Sensor': 'Level sensor included',
+      'Power Supply': 'AC 220V, 50/60Hz',
+      'Enclosure': 'Compact metal cabinet',
+    },
+    audience: 'Students learning liquid level control and basic process instrumentation.',
+    faq: [
+      { q: 'Does this use a real water tank?', a: 'The cabinet includes control components. A demonstration tank setup can be configured on request.' },
+    ],
   },
   {
     slug: 'vfd-water-supply-cabinet',
@@ -373,6 +592,16 @@ export const products: Product[] = [
     intro: 'Constant pressure water supply control cabinet with integrated VFD inverter.',
     description: 'A professional automation training cabinet for constant-pressure water supply control, inverter operation, and VFD wiring practice.',
     features: ['Constant pressure water supply training setup', 'Integrated VFD inverter cabinet', 'Detailed user manual with wiring diagrams', 'Step-by-step training videos', '1-year warranty and global shipping'],
+    specs: {
+      'VFD': 'Integrated variable frequency drive',
+      'Control': 'Constant pressure water supply',
+      'Power Supply': 'AC 220V, 50/60Hz',
+      'Enclosure': 'Metal cabinet with VFD panel',
+    },
+    audience: 'Students learning VFD operation in water supply and pump control applications.',
+    faq: [
+      { q: 'Can this be used with a real pump?', a: 'Yes. The cabinet connects to a real water pump for practical constant-pressure control training.' },
+    ],
   },
   {
     slug: 'dol-motor-starter-control-panel',
@@ -388,6 +617,16 @@ export const products: Product[] = [
     intro: 'Direct-on-line motor starter panel for compact motor control training.',
     description: 'A practical DOL motor starter control panel for motor starting, safety circuit instruction, and entry-level motor control training.',
     features: ['Direct-on-line motor starter control panel', 'Compact format for education and training', 'Detailed user manual with wiring diagrams', 'Step-by-step training videos', '1-year warranty and global shipping'],
+    specs: {
+      'Starter': 'Direct-On-Line (DOL)',
+      'Components': 'Contactor, overload relay, push buttons',
+      'Power Supply': 'AC 220V/380V',
+      'Enclosure': 'Compact panel',
+    },
+    audience: 'Beginners learning basic motor starting circuits and safety protection.',
+    faq: [
+      { q: 'What motor size can this handle?', a: 'Designed for small motors up to 1.5kW for training purposes.' },
+    ],
   },
   {
     slug: 'star-delta-reduced-voltage-starter-control-panel',
@@ -403,6 +642,16 @@ export const products: Product[] = [
     intro: 'Star-delta starter panel for reduced-voltage motor starting practice.',
     description: 'Built for reduced-voltage motor starting lessons with star-delta control logic and wiring practice.',
     features: ['Star-delta reduced-voltage starter setup', 'Suitable for motor starting instruction', 'Detailed user manual with wiring diagrams', 'Step-by-step training videos', '1-year warranty and global shipping'],
+    specs: {
+      'Starter': 'Star-Delta (Y-D) reduced voltage',
+      'Components': '3 contactors, timer, overload relay',
+      'Power Supply': 'AC 380V',
+      'Enclosure': 'Compact panel',
+    },
+    audience: 'Students learning reduced-voltage starting methods and motor protection.',
+    faq: [
+      { q: 'Why use star-delta starting?', a: 'Reduces starting current to about 1/3 of DOL, protecting motor and electrical system.' },
+    ],
   },
   {
     slug: 'motor-forward-reverse-control-box',
@@ -418,6 +667,16 @@ export const products: Product[] = [
     intro: 'Training box for motor forward and reverse direction control with safety circuits.',
     description: 'A motor direction control trainer for forward/reverse switching, interlock understanding, and practical safety circuit exercises.',
     features: ['Forward and reverse motor control training', 'Covers direction control and safety circuits', 'Detailed user manual with wiring diagrams', 'Step-by-step training videos', '1-year warranty and global shipping'],
+    specs: {
+      'Control': 'Forward/Reverse with interlock',
+      'Components': '2 contactors, push buttons, interlock',
+      'Power Supply': 'AC 220V/380V',
+      'Enclosure': 'Compact box',
+    },
+    audience: 'Students learning motor direction control and electrical interlocking.',
+    faq: [
+      { q: 'What safety features are included?', a: 'Electrical and mechanical interlocking prevents simultaneous forward and reverse operation.' },
+    ],
   },
   {
     slug: 'three-phase-motor-training-set',
@@ -433,6 +692,16 @@ export const products: Product[] = [
     intro: 'Three-phase motor training set with forward and reverse rotation practice.',
     description: 'A complete three-phase motor control training set for rotation control, wiring practice, and foundational industrial motor training.',
     features: ['Three-phase motor forward/reverse rotation practice', 'Complete motor control training solution', 'Detailed user manual with wiring diagrams', 'Step-by-step training videos', '1-year warranty and global shipping'],
+    specs: {
+      'Motor': '3-phase induction motor',
+      'Control': 'Forward/reverse rotation',
+      'Power Supply': 'AC 380V',
+      'Enclosure': 'Training panel with motor',
+    },
+    audience: 'Students learning three-phase motor fundamentals, wiring, and rotation control.',
+    faq: [
+      { q: 'Is the motor included?', a: 'Yes. Includes a three-phase motor with control panel for hands-on wiring and rotation practice.' },
+    ],
   },
   {
     slug: 'intelligent-temperature-and-humidity-control-box',
@@ -448,6 +717,17 @@ export const products: Product[] = [
     intro: 'Environmental control box for intelligent temperature and humidity training.',
     description: 'Supports sensor and control education around temperature and humidity management for environmental monitoring training.',
     features: ['Temperature and humidity control training setup', 'Sensor and environmental control education', 'Detailed user manual with wiring diagrams', 'Step-by-step training videos', '1-year warranty and global shipping'],
+    specs: {
+      'Sensors': 'Temperature and humidity sensors',
+      'Control': 'Automatic environmental control',
+      'Display': 'Digital readout',
+      'Power Supply': 'AC 220V',
+      'Enclosure': 'Compact box',
+    },
+    audience: 'Students learning environmental monitoring and intelligent control systems.',
+    faq: [
+      { q: 'What applications does this simulate?', a: 'Simulates environmental control for warehouses, greenhouses, server rooms, and clean rooms.' },
+    ],
   },
 ];
 

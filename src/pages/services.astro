@@ -22,6 +22,43 @@ const services = [
   },
 ];
 
+
+const siteUrl = 'https://plc-training-kits.tech';
+const serviceSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'PLC Programming Service',
+    provider: { '@type': 'Organization', name: 'Kernal Automation', url: siteUrl },
+    areaServed: 'Worldwide',
+    description: 'Custom PLC programming for automation projects. Siemens TIA Portal, Mitsubishi GX Works, Allen-Bradley CCW, HMI design, and remote commissioning.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Automation Software Sales',
+    provider: { '@type': 'Organization', name: 'Kernal Automation', url: siteUrl },
+    areaServed: 'Worldwide',
+    description: 'Licensed automation software including Siemens TIA Portal, Mitsubishi GX Works 3, HMI/SCADA tools, and simulation software.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Custom Training Kit Design',
+    provider: { '@type': 'Organization', name: 'Kernal Automation', url: siteUrl },
+    areaServed: 'Worldwide',
+    description: 'Tailored PLC training kit design matched to your curriculum. Custom PLC brand selection, component configuration, and bulk order support.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl + '/' },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: siteUrl + '/services/' },
+    ],
+  },
+];
+
 const process = [
   { step: '1', title: 'Tell Us Your Needs', desc: 'Describe your project, curriculum, or software requirements.' },
   { step: '2', title: 'Get a Proposal', desc: 'We provide a detailed proposal with scope, timeline, and pricing.' },
@@ -33,6 +70,7 @@ const process = [
   title="Services | PLC Programming, Automation Software & Custom Kit Design"
   description="Professional automation services: custom PLC programming, licensed automation software sales, and tailored training kit design for schools and enterprises."
   canonicalPath="/services/"
+  schemaJsonLd={serviceSchema}
 >
   <!-- Hero -->
   <section class="svc-hero">

@@ -42,12 +42,34 @@ const faqCategories = [
 ];
 
 const totalQuestions = faqCategories.reduce((sum, cat) => sum + cat.items.length, 0);
+
+const allFaqItems = faqCategories.flatMap((cat) => cat.items);
+const faqSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: allFaqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://plc-training-kits.tech/' },
+      { '@type': 'ListItem', position: 2, name: 'FAQ', item: 'https://plc-training-kits.tech/faq/' },
+    ],
+  },
+];
 ---
 
 <SiteLayout
   title="FAQ | PLC Training Kits — Frequently Asked Questions"
   description="Answers to common questions about PLC training kits, payment methods, shipping, warranty, and technical support."
   canonicalPath="/faq/"
+  schemaJsonLd={faqSchema}
 >
   <!-- Hero -->
   <section class="faq-hero">

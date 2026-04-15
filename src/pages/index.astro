@@ -29,12 +29,36 @@ const schemaOrg = [
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: "Peggy's Automation Store",
+    alternateName: 'Kernal Automation - System Integration Department',
     image: `${siteUrl}/logo.png`,
+    logo: `${siteUrl}/logo.png`,
     telephone: '+86-176-1205-1841',
     email: 'peggy@kernal-automation.com',
     url: siteUrl,
     areaServed: 'Worldwide',
     priceRange: '$95-$2100',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Dongguan',
+      addressRegion: 'Guangdong',
+      addressCountry: 'CN',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 23.0208,
+      longitude: 113.7518,
+    },
+    sameAs: [
+      'https://www.linkedin.com/company/kernal-automation-co-limited/',
+      'https://www.youtube.com/@PeggyinKernal',
+      'https://kernal-automation.com/',
+    ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '47',
+      bestRating: '5',
+    },
   },
   {
     '@context': 'https://schema.org',
@@ -61,12 +85,12 @@ const schemaOrg = [
 ];
 
 const whyItems = [
-  { icon: 'fa-solid fa-book', title: 'Complete Documentation', desc: 'Every kit includes detailed manuals and wiring diagrams ready for classroom use.' },
-  { icon: 'fa-solid fa-video', title: 'Training Videos', desc: 'Step-by-step video tutorials covering all training tasks.' },
-  { icon: 'fa-solid fa-sliders', title: 'Customization', desc: 'Need different configurations? Our engineers can customize kits for you.' },
-  { icon: 'fa-solid fa-headset', title: 'Technical Support', desc: 'Direct access to our engineers for technical questions.' },
-  { icon: 'fa-solid fa-truck-fast', title: 'Global Shipping', desc: 'DHL, FedEx, air or sea freight. We ship to 50+ countries.' },
-  { icon: 'fa-solid fa-tags', title: 'Bulk Pricing', desc: 'Special pricing for schools ordering multiple units.' },
+  { icon: '<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>', title: 'Complete Documentation', desc: 'Every kit includes detailed manuals and wiring diagrams ready for classroom use.' },
+  { icon: '<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>', title: 'Training Videos', desc: 'Step-by-step video tutorials covering all training tasks.' },
+  { icon: '<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>', title: 'Customization', desc: 'Need different configurations? Our engineers can customize kits for you.' },
+  { icon: '<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>', title: 'Technical Support', desc: 'Direct access to our engineers for technical questions.' },
+  { icon: '<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>', title: 'Global Shipping', desc: 'DHL, FedEx, air or sea freight. We ship to 50+ countries.' },
+  { icon: '<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>', title: 'Bulk Pricing', desc: 'Special pricing for schools ordering multiple units.' },
 ];
 
 const testimonials = [
@@ -221,7 +245,7 @@ const processSteps = [
       <div class="why-grid">
         {whyItems.map((item) => (
           <article class="why-card">
-            <i class={`${item.icon} why-icon`}></i>
+            <span class="why-icon" set:html={item.icon} />
             <h3 class="why-title">{item.title}</h3>
             <p class="why-desc">{item.desc}</p>
           </article>

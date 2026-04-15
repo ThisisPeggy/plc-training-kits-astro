@@ -1,8 +1,5 @@
 ---
 import '../styles/global.css';
-import '@fortawesome/fontawesome-free/css/fontawesome.min.css';
-import '@fortawesome/fontawesome-free/css/solid.min.css';
-import '@fortawesome/fontawesome-free/css/brands.min.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
@@ -36,6 +33,9 @@ const canonicalUrl = canonicalPath ? `${siteUrl}${canonicalPath}` : `${siteUrl}/
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#1a365d" />
+    <link rel="alternate" hreflang="en" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
     <meta name="author" content="Peggy Chan, Kernal Automation" />
     <meta name="msvalidate.01" content="F902455469F9DD5B4D85E3662D3FC213" />
 

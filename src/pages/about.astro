@@ -1,0 +1,362 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const siteUrl = 'https://plc-training-kits.tech';
+
+const aboutSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Kernal Automation Co., Ltd.',
+    alternateName: 'Kernal Automation - System Integration Department',
+    url: siteUrl,
+    logo: `${siteUrl}/logo.png`,
+    description: 'Professional PLC training kit manufacturer. Serving schools, labs, and enterprises in 50+ countries.',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Dongguan',
+      addressRegion: 'Guangdong',
+      addressCountry: 'CN',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+86-176-1205-1841',
+      contactType: 'sales',
+      email: 'peggy@kernal-automation.com',
+      availableLanguage: ['English', 'Chinese'],
+    },
+    sameAs: [
+      'https://www.linkedin.com/company/kernal-automation-co-limited/',
+      'https://www.youtube.com/@PeggyinKernal',
+      'https://kernal-automation.com/',
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl + '/' },
+      { '@type': 'ListItem', position: 2, name: 'About', item: siteUrl + '/about/' },
+    ],
+  },
+];
+
+const strengths = [
+  'Factory-direct production and assembly',
+  'Siemens, Mitsubishi, and Allen-Bradley coverage',
+  'Pre-wired training-ready equipment',
+  'Documentation, wiring guidance, and support',
+  'Custom kit configuration for curriculum needs',
+  'Global delivery for schools and training labs',
+];
+
+const milestones = [
+  { year: '2015', event: 'Kernal Automation Co., Ltd. established in Dongguan, Guangdong.' },
+  { year: '2018', event: 'System Integration Department launched for training equipment projects.' },
+  { year: '2020', event: 'Expanded solutions across Siemens, Mitsubishi, and Allen-Bradley platforms.' },
+  { year: '2024', event: 'Serving customers in 50+ countries with 20+ training kit models.' },
+];
+---
+
+<SiteLayout
+  title="About Us | Kernal Automation - PLC Training Kit Manufacturer"
+  description="Kernal Automation is a professional PLC training kit manufacturer in Dongguan, China. Pre-wired training equipment for schools and enterprises in 50+ countries."
+  canonicalPath="/about/"
+  schemaJsonLd={aboutSchema}
+>
+  <section class="about-hero">
+    <div class="container">
+      <div class="breadcrumb" style="color:rgba(255,255,255,0.7);">
+        <a href="/" style="color:rgba(255,255,255,0.7);">Home</a> / <span>About</span>
+      </div>
+      <h1>About Kernal Automation</h1>
+      <p class="about-hero__desc">
+        We design and assemble practical PLC training kits for schools, labs, and enterprise training centers.
+        Our goal is to provide real industrial hardware that students can wire, program, and troubleshoot.
+      </p>
+    </div>
+  </section>
+
+  <section class="about-content">
+    <div class="container">
+      <article class="about-block">
+        <div class="about-block__number">01</div>
+        <div class="about-block__body">
+          <h2 class="about-block__title">Who We Are</h2>
+          <p class="about-block__desc">
+            Kernal Automation is based in Dongguan, China. Our System Integration Department focuses on practical
+            training equipment for vocational schools, universities, and industrial training programs.
+          </p>
+          <p class="about-block__detail">
+            Instead of relying on software simulation alone, many schools want students to work with real PLCs,
+            HMIs, wiring, drives, and control logic. We build complete hardware platforms to support that kind of learning.
+          </p>
+        </div>
+      </article>
+
+      <article class="about-block about-block--alt">
+        <div class="about-block__number">02</div>
+        <div class="about-block__body">
+          <h2 class="about-block__title">Why Buyers Choose Us</h2>
+          <p class="about-block__desc">
+            We are not just selling catalog items. We support real training use cases with direct factory coordination.
+          </p>
+          <ul class="about-block__list">
+            {strengths.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </article>
+
+      <article class="about-block">
+        <div class="about-block__number">03</div>
+        <div class="about-block__body">
+          <h2 class="about-block__title">Our Journey</h2>
+          <div class="about-timeline">
+            {milestones.map((item) => (
+              <div class="about-timeline__item">
+                <div class="about-timeline__year">{item.year}</div>
+                <div class="about-timeline__event">{item.event}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </article>
+
+      <article class="about-block about-block--alt">
+        <div class="about-block__number">04</div>
+        <div class="about-block__body">
+          <h2 class="about-block__title">Contact Peggy</h2>
+          <p class="about-block__desc">
+            Peggy is your direct contact for product recommendations, custom kit requirements, pricing, and project follow-up.
+          </p>
+          <p class="about-block__detail">
+            She works with the engineering team to match training equipment to your curriculum, lab setup, and purchasing needs.
+          </p>
+          <div class="about-contact">
+            <a href="https://wa.me/8617612051841" target="_blank">WhatsApp: +86 176 1205 1841</a>
+            <a href="mailto:peggy@kernal-automation.com">peggy@kernal-automation.com</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="about-cta">
+    <div class="container">
+      <div class="about-cta__box">
+        <h2>Ready to equip your training lab?</h2>
+        <p>Contact Peggy for recommendations, customization options, and bulk pricing.</p>
+        <div class="about-cta__actions">
+          <a class="button button--primary" href="https://wa.me/8617612051841" target="_blank">Chat with Peggy</a>
+          <a class="button button--secondary" href="mailto:peggy@kernal-automation.com">Email Peggy</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</SiteLayout>
+
+<style>
+  .about-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #fff;
+    padding: 3rem 0 2.5rem;
+  }
+
+  .about-hero h1 {
+    margin: 0.75rem 0 0.75rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  .about-hero__desc {
+    margin: 0;
+    max-width: 58ch;
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.7;
+  }
+
+  .about-content {
+    padding: 3rem 0 1rem;
+  }
+
+  .about-block {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 1.5rem;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition: box-shadow 0.2s;
+  }
+
+  .about-block:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  }
+
+  .about-block--alt {
+    background: var(--bg);
+  }
+
+  .about-block__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--primary);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .about-block__title {
+    margin: 0 0 0.6rem;
+    color: var(--primary);
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  .about-block__desc {
+    margin: 0 0 0.5rem;
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .about-block__detail {
+    margin: 0;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  .about-block__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 1.5rem;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .about-block__list li {
+    position: relative;
+    padding-left: 1.1rem;
+    color: var(--text);
+    font-size: 0.92rem;
+  }
+
+  .about-block__list li::before {
+    content: '';
+    position: absolute;
+    top: 0.55rem;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--primary);
+  }
+
+  .about-timeline {
+    margin-top: 0.75rem;
+  }
+
+  .about-timeline__item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .about-timeline__item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .about-timeline__year {
+    flex-shrink: 0;
+    width: 60px;
+    color: var(--primary);
+    font-size: 1.1rem;
+    font-weight: 800;
+  }
+
+  .about-timeline__event {
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .about-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-top: 1rem;
+  }
+
+  .about-contact a {
+    color: var(--primary);
+    font-weight: 500;
+  }
+
+  .about-contact a:hover {
+    text-decoration: underline;
+  }
+
+  .about-cta {
+    padding: 0 0 4rem;
+  }
+
+  .about-cta__box {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    border-radius: 16px;
+    color: #fff;
+  }
+
+  .about-cta__box h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.75rem;
+    font-weight: 800;
+  }
+
+  .about-cta__box p {
+    margin: 0 0 1.5rem;
+    opacity: 0.9;
+  }
+
+  .about-cta__actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .about-hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .about-block {
+      grid-template-columns: 1fr;
+    }
+
+    .about-block__list {
+      grid-template-columns: 1fr;
+    }
+
+    .about-timeline__item {
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .about-cta__box {
+      padding: 2rem 1.25rem;
+    }
+  }
+</style>
