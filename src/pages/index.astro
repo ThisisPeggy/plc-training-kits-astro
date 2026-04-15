@@ -7,7 +7,7 @@ const siemensProducts = products.filter((p) => p.category === 'siemens');
 const mitsubishiProducts = products.filter((p) => p.category === 'mitsubishi');
 const abProducts = products.filter((p) => p.category === 'allen-bradley');
 const cabinetProducts = products.filter((p) => p.category === 'control-cabinets');
-const heroProduct = siemensProducts[0];
+const heroProduct = products.find((p) => p.slug === 'ab-micro850-powerflex-22f-vfd-training-kit')!;
 
 const siteUrl = 'https://plc-training-kits.tech';
 
