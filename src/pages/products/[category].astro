@@ -96,12 +96,16 @@ const categorySchema = [
           )
         ))}
       </div>
+    </div>
+  </section>
 
-      <div class="page-cta">
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner__box">
         <h2>Need help choosing the right {cat.category === 'control-cabinets' ? 'cabinet' : 'kit'}?</h2>
         <p>Contact Peggy for product recommendations, customization options, and bulk pricing.</p>
-        <div class="page-cta__actions">
-          <a class="button button--primary" href={`https://wa.me/8617612051841?text=${encodeURIComponent(cat.whatsappText)}`} target="_blank">WhatsApp Peggy</a>
+        <div class="cta-banner__actions">
+          <a class="button button--whatsapp" href={`https://wa.me/8617612051841?text=${encodeURIComponent(cat.whatsappText)}`} target="_blank">WhatsApp Peggy</a>
           <a class="button button--secondary" href="mailto:peggy@kernal-automation.com">Email Peggy</a>
         </div>
       </div>

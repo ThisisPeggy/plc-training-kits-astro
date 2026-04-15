@@ -53,17 +53,12 @@ const strengths = [
 ];
 
 const milestones = [
-  { year: '2004', event: 'Set up a studio in Shenzhen.' },
-  { year: '2006', event: 'Produced the first high-quality PLC model EM221.' },
-  { year: '2007', event: 'Kernal Automation officially named. Started manufacturing power supplies, sensors, cables, HMIs and IPCs.' },
-  { year: '2008', event: 'Factory affected by Wenchuan earthquake, rebuilt in Huizhou.' },
-  { year: '2010', event: 'Expanded production to inverters, servo drives, and stepper motors.' },
-  { year: '2014', event: 'Raised funds to develop new area: robotics.' },
-  { year: '2017', event: 'Established Huizhou office. Promoting international brands including Siemens, AB, ABB, Schneider, Proface, Kinco, Omron, GE.' },
-  { year: '2019', event: 'Developed internal systems to streamline management, expedite quotation, and enhance service efficiency.' },
-  { year: '2020', event: 'Huizhou Branch established during the COVID-19 pandemic.' },
-  { year: '2022', event: 'Deeply developed the international market and set up Changsha Branch.' },
-  { year: '2023', event: 'Expanded to Bayern (Germany) and Guangzhou offices.' },
+  { year: '2004', event: 'Founded in Shenzhen.' },
+  { year: '2007', event: 'Kernal Automation officially named. Started manufacturing PLCs, sensors, and HMIs.' },
+  { year: '2010', event: 'Expanded to inverters, servo drives, and stepper motors.' },
+  { year: '2017', event: 'Partnering with Siemens, AB, ABB, Schneider, and more international brands.' },
+  { year: '2022', event: 'International expansion — Changsha Branch established.' },
+  { year: '2023', event: 'Opened Bayern (Germany) and Guangzhou offices.' },
 ];
 ---
 
@@ -73,14 +68,14 @@ const milestones = [
   canonicalPath="/about/"
   schemaJsonLd={aboutSchema}
 >
-  <section class="about-hero">
+  <section class="page-hero">
     <div class="container">
-      <div class="breadcrumb" style="color:rgba(255,255,255,0.7);">
-        <a href="/" style="color:rgba(255,255,255,0.7);">Home</a> / <span>About</span>
+      <div class="breadcrumb breadcrumb--on-dark">
+        <a href="/">Home</a> / <span>About</span>
       </div>
       <h1>About Kernal Automation</h1>
-      <p class="about-hero__desc">
-        Founded in 2004 and headquartered in Shenzhen, Kernal Automation is an industrial automation company with nearly 260 professionals across 4 branches in China and Germany. We collaborate with over 125 brands worldwide and offer 56,285 electronic components and automation solutions.
+      <p class="page-hero__desc">
+        Founded in 2004 in Shenzhen. 260+ professionals, 4 branches across China and Germany, 125+ brand partners, 56,285 SKUs.
       </p>
     </div>
   </section>
@@ -88,21 +83,16 @@ const milestones = [
   <section class="about-content">
     <div class="container">
       <article class="about-block">
-        <div class="about-block__number">01</div>
-        <div class="about-block__body">
           <h2 class="about-block__title">Who We Are</h2>
           <p class="about-block__desc">
             Kernal Automation was founded in 2004 in Shenzhen, China. With 4 branches — Huizhou (factory, warehouse, sales), Changsha (sales), Guangzhou, and Bayern, Germany — we serve customers across 15+ countries.
           </p>
           <p class="about-block__detail">
-            We are committed to providing a diverse selection of automation products and related accessories, as well as Industry 4.0 solutions. Our vision is to become the most reliable and trustworthy partner in the trade industry. Our System Integration Department designs PLC training kits and control cabinets for vocational schools, universities, and enterprise training programs.
+            Our System Integration Department designs PLC training kits and control cabinets for vocational schools, universities, and enterprise training programs.
           </p>
-        </div>
       </article>
 
       <article class="about-block about-block--alt">
-        <div class="about-block__number">02</div>
-        <div class="about-block__body">
           <h2 class="about-block__title">Why Buyers Choose Us</h2>
           <p class="about-block__desc">
             With nearly 260 professionals and partnerships with 125+ brands, we combine deep supply chain expertise with pre-sales quality assurance and comprehensive after-sales support.
@@ -110,12 +100,9 @@ const milestones = [
           <ul class="about-block__list">
             {strengths.map((item) => <li>{item}</li>)}
           </ul>
-        </div>
       </article>
 
       <article class="about-block">
-        <div class="about-block__number">03</div>
-        <div class="about-block__body">
           <h2 class="about-block__title">Our Journey</h2>
           <div class="about-timeline">
             {milestones.map((item) => (
@@ -125,12 +112,9 @@ const milestones = [
               </div>
             ))}
           </div>
-        </div>
       </article>
 
       <article class="about-block about-block--alt">
-        <div class="about-block__number">04</div>
-        <div class="about-block__body">
           <h2 class="about-block__title">Contact Peggy</h2>
           <p class="about-block__desc">
             Peggy is your direct contact for product recommendations, custom kit requirements, pricing, and project follow-up.
@@ -142,18 +126,17 @@ const milestones = [
             <a href="https://wa.me/8617612051841" target="_blank">WhatsApp: +86 176 1205 1841</a>
             <a href="mailto:peggy@kernal-automation.com">peggy@kernal-automation.com</a>
           </div>
-        </div>
       </article>
     </div>
   </section>
 
-  <section class="about-cta">
+  <section class="cta-banner">
     <div class="container">
-      <div class="about-cta__box">
+      <div class="cta-banner__box">
         <h2>Ready to equip your training lab?</h2>
         <p>Contact Peggy for recommendations, customization options, and bulk pricing.</p>
-        <div class="about-cta__actions">
-          <a class="button button--primary" href="https://wa.me/8617612051841" target="_blank">Chat with Peggy</a>
+        <div class="cta-banner__actions">
+          <a class="button button--whatsapp" href="https://wa.me/8617612051841" target="_blank">Chat with Peggy</a>
           <a class="button button--secondary" href="mailto:peggy@kernal-automation.com">Email Peggy</a>
         </div>
       </div>
@@ -162,89 +145,58 @@ const milestones = [
 </SiteLayout>
 
 <style>
-  .about-hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: #fff;
-    padding: 3rem 0 2.5rem;
-  }
-
-  .about-hero h1 {
-    margin: 0.75rem 0 0.75rem;
-    font-size: 2.5rem;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-  }
-
-  .about-hero__desc {
-    margin: 0;
-    max-width: 58ch;
-    font-size: 1.05rem;
-    color: rgba(255, 255, 255, 0.88);
-    line-height: 1.7;
-  }
-
   .about-content {
     padding: 3rem 0 1rem;
   }
 
   .about-block {
-    display: grid;
-    grid-template-columns: 60px 1fr;
-    gap: 1.5rem;
+    max-width: 720px;
+    margin: 0 auto 1.5rem;
     padding: 2rem;
-    margin-bottom: 1.5rem;
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 16px;
-    transition: box-shadow 0.2s;
-  }
-
-  .about-block:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
   }
 
   .about-block--alt {
     background: var(--bg);
   }
 
-  .about-block__number {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background: var(--primary);
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: 800;
-    flex-shrink: 0;
+  .about-block__num {
+    display: block;
+    color: var(--text-light);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.35rem;
   }
 
   .about-block__title {
-    margin: 0 0 0.6rem;
+    margin: 0 0 0.75rem;
     color: var(--primary);
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 700;
   }
 
   .about-block__desc {
     margin: 0 0 0.5rem;
     color: var(--text);
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 500;
   }
 
   .about-block__detail {
     margin: 0;
     color: var(--text-light);
+    font-size: 0.92rem;
     line-height: 1.7;
   }
 
   .about-block__list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.4rem 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
     margin: 1rem 0 0;
     padding: 0;
     list-style: none;
@@ -273,9 +225,7 @@ const milestones = [
   }
 
   .about-timeline__item {
-    display: flex;
-    gap: 1.5rem;
-    padding: 1rem 0;
+    padding: 0.6rem 0;
     border-bottom: 1px solid var(--border);
   }
 
@@ -285,16 +235,15 @@ const milestones = [
   }
 
   .about-timeline__year {
-    flex-shrink: 0;
-    width: 60px;
     color: var(--primary);
-    font-size: 1.1rem;
-    font-weight: 800;
+    font-size: 0.85rem;
+    font-weight: 700;
   }
 
   .about-timeline__event {
-    color: var(--text);
-    line-height: 1.6;
+    color: var(--text-light);
+    font-size: 0.92rem;
+    line-height: 1.5;
   }
 
   .about-contact {
@@ -306,6 +255,7 @@ const milestones = [
 
   .about-contact a {
     color: var(--primary);
+    font-size: 0.92rem;
     font-weight: 500;
   }
 
@@ -313,56 +263,9 @@ const milestones = [
     text-decoration: underline;
   }
 
-  .about-cta {
-    padding: 0 0 4rem;
-  }
-
-  .about-cta__box {
-    text-align: center;
-    padding: 3rem 2rem;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    border-radius: 16px;
-    color: #fff;
-  }
-
-  .about-cta__box h2 {
-    margin: 0 0 0.75rem;
-    font-size: 1.75rem;
-    font-weight: 800;
-  }
-
-  .about-cta__box p {
-    margin: 0 0 1.5rem;
-    opacity: 0.9;
-  }
-
-  .about-cta__actions {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.9rem;
-  }
-
   @media (max-width: 768px) {
-    .about-hero h1 {
-      font-size: 1.75rem;
-    }
-
-    .about-block {
-      grid-template-columns: 1fr;
-    }
-
     .about-block__list {
       grid-template-columns: 1fr;
-    }
-
-    .about-timeline__item {
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .about-cta__box {
-      padding: 2rem 1.25rem;
     }
   }
 </style>

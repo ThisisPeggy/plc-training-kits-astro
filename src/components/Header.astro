@@ -15,41 +15,152 @@
       <a href="/about/">About</a>
       <a href="/#contact">Contact</a>
     </nav>
-    <div style="display:flex;align-items:center;gap:0.5rem;">
+    <div class="site-header__actions">
       <a class="button button--secondary" href="https://wa.me/8617612051841?text=Hi%20Peggy%2C%20I%20need%20the%20latest%20PLC%20training%20kit%20catalog." target="_blank">Get Catalog</a>
-      <button id="hamburgerBtn" class="hamburger-btn" aria-label="Menu" style="display:none;flex-direction:column;gap:4px;padding:8px;border:none;background:none;cursor:pointer;">
-        <span style="display:block;width:20px;height:2px;background:var(--primary);border-radius:2px;"></span>
-        <span style="display:block;width:20px;height:2px;background:var(--primary);border-radius:2px;"></span>
-        <span style="display:block;width:20px;height:2px;background:var(--primary);border-radius:2px;"></span>
+      <button id="hamburgerBtn" class="hamburger-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </div>
   </div>
 </header>
 
 <!-- Mobile side menu -->
-<div id="sideMenu" style="position:fixed;inset:0 0 0 auto;z-index:1100;width:280px;background:#fff;box-shadow:-4px 0 24px rgba(0,0,0,0.15);transform:translateX(100%);transition:transform 0.3s ease;">
-  <div style="display:flex;flex-direction:column;height:100%;padding:1.25rem;overflow-y:auto;">
-    <button id="closeSideMenu" style="align-self:flex-end;border:none;background:none;font-size:1.5rem;cursor:pointer;color:var(--text-light);">&times;</button>
-    <p style="font-size:0.72rem;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:0.08em;margin:1rem 0 0.5rem;">Navigation</p>
-    <nav style="display:flex;flex-direction:column;gap:0.25rem;margin-bottom:1.5rem;">
-      <a class="side-link" href="/#products" style="padding:0.5rem 0;font-size:0.92rem;font-weight:500;">Training Kits</a>
-      <a class="side-link" href="/#cabinets" style="padding:0.5rem 0;font-size:0.92rem;font-weight:500;">Control Cabinets</a>
-      <a class="side-link" href="/services/" style="padding:0.5rem 0;font-size:0.92rem;font-weight:500;">Services</a>
-      <a class="side-link" href="/faq/" style="padding:0.5rem 0;font-size:0.92rem;font-weight:500;">FAQ</a>
-      <a class="side-link" href="/about/" style="padding:0.5rem 0;font-size:0.92rem;font-weight:500;">About</a>
-      <a class="side-link" href="/#contact" style="padding:0.5rem 0;font-size:0.92rem;font-weight:500;">Contact</a>
+<div id="sideMenu" class="side-menu">
+  <div class="side-menu__inner">
+    <button id="closeSideMenu" class="side-menu__close">&times;</button>
+    <p class="side-menu__label">Navigation</p>
+    <nav class="side-menu__nav">
+      <a class="side-link" href="/#products">Training Kits</a>
+      <a class="side-link" href="/#cabinets">Control Cabinets</a>
+      <a class="side-link" href="/services/">Services</a>
+      <a class="side-link" href="/faq/">FAQ</a>
+      <a class="side-link" href="/about/">About</a>
+      <a class="side-link" href="/#contact">Contact</a>
     </nav>
-    <div style="margin-top:auto;border-top:1px solid var(--border);padding-top:1rem;display:flex;flex-direction:column;gap:0.5rem;font-size:0.88rem;">
-      <a href="https://wa.me/8617612051841" target="_blank" style="color:var(--whatsapp);font-weight:600;">WhatsApp Peggy</a>
-      <a href="mailto:peggy@kernal-automation.com" style="color:var(--text-light);">peggy@kernal-automation.com</a>
+    <div class="side-menu__footer">
+      <a href="https://wa.me/8617612051841" target="_blank" class="side-menu__wa">WhatsApp Peggy</a>
+      <a href="mailto:peggy@kernal-automation.com" class="side-menu__email">peggy@kernal-automation.com</a>
     </div>
   </div>
 </div>
-<div id="sideMenuOverlay" style="position:fixed;inset:0;z-index:1050;background:rgba(0,0,0,0.4);display:none;"></div>
+<div id="sideMenuOverlay" class="side-menu-overlay"></div>
 
-<style>
+<style is:global>
+  .site-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .hamburger-btn {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  .hamburger-btn span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 2px;
+  }
+
+  .side-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1100;
+    width: 280px;
+    background: #fff;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .side-menu.open {
+    transform: translateX(0);
+  }
+
+  .side-menu__inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.25rem;
+    overflow-y: auto;
+  }
+
+  .side-menu__close {
+    align-self: flex-end;
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-light);
+  }
+
+  .side-menu__label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 1rem 0 0.5rem;
+  }
+
+  .side-menu__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .side-link {
+    padding: 0.5rem 0;
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+
+  .side-menu__footer {
+    margin-top: auto;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+  }
+
+  .side-menu__wa {
+    color: var(--whatsapp);
+    font-weight: 600;
+  }
+
+  .side-menu__email {
+    color: var(--text-light);
+  }
+
+  .side-menu-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1050;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+  }
+
+  .side-menu-overlay.open {
+    display: block;
+  }
+
   @media (max-width: 768px) {
-    .hamburger-btn { display: flex !important; }
+    .hamburger-btn { display: flex; }
   }
 </style>
 
@@ -58,8 +169,8 @@
   const menu = document.getElementById('sideMenu');
   const overlay = document.getElementById('sideMenuOverlay');
   const close = document.getElementById('closeSideMenu');
-  function openM() { menu.style.transform='translateX(0)'; overlay.style.display='block'; }
-  function closeM() { menu.style.transform='translateX(100%)'; overlay.style.display='none'; }
+  function openM() { menu.classList.add('open'); overlay.classList.add('open'); }
+  function closeM() { menu.classList.remove('open'); overlay.classList.remove('open'); }
   btn?.addEventListener('click', openM);
   close?.addEventListener('click', closeM);
   overlay?.addEventListener('click', closeM);
