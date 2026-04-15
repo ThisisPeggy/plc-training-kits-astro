@@ -678,7 +678,7 @@ details summary:focus-visible {
 }
 
 .cta-banner__box p {
-  max-width: 600px;
+  max-width: 720px;
   margin: 0 auto 1.5rem;
   font-size: 1.05rem;
   opacity: 0.9;
