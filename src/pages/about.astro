@@ -11,10 +11,10 @@ const aboutSchema = [
     alternateName: 'Kernal Automation - System Integration Department',
     url: siteUrl,
     logo: `${siteUrl}/logo.png`,
-    description: 'Professional PLC training kit manufacturer. Serving schools, labs, and enterprises in 15+ countries.',
+    description: 'Founded in 2004, headquartered in Shenzhen. Industrial automation company with 400+ professionals, 125+ brand partners, and 56,285 SKUs. PLC training kits and automation solutions for 15+ countries.',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Dongguan',
+      addressLocality: 'Shenzhen',
       addressRegion: 'Guangdong',
       addressCountry: 'CN',
     },
@@ -42,25 +42,34 @@ const aboutSchema = [
 ];
 
 const strengths = [
-  'Factory-direct production and assembly',
-  'Siemens, Mitsubishi, and Allen-Bradley coverage',
-  'Pre-wired training-ready equipment',
-  'Documentation, wiring guidance, and support',
-  'Custom kit configuration for curriculum needs',
-  'Global delivery for schools and training labs',
+  'Nearly 400 professionals across 4 branches',
+  'Collaborating with 125+ brands, offering 56,285 SKUs',
+  'Main warehouse in Huizhou with factory and logistics',
+  'Transit warehouse close to Hong Kong for fast global shipping',
+  'Ships via DHL, FedEx, UPS, TNT, and sea freight',
+  'Specialized selection team and dedicated sales staff',
+  'Continuous technical support from IT and engineers',
+  'Premium supply with efficient delivery speed',
 ];
 
 const milestones = [
-  { year: '2015', event: 'Kernal Automation Co., Ltd. established in Dongguan, Guangdong.' },
-  { year: '2018', event: 'System Integration Department launched for training equipment projects.' },
-  { year: '2020', event: 'Expanded solutions across Siemens, Mitsubishi, and Allen-Bradley platforms.' },
-  { year: '2024', event: 'Serving customers in 15+ countries with 20+ training kit models.' },
+  { year: '2004', event: 'Set up a studio in Shenzhen.' },
+  { year: '2006', event: 'Produced the first high-quality PLC model EM221.' },
+  { year: '2007', event: 'Kernal Automation officially named. Started manufacturing power supplies, sensors, cables, HMIs and IPCs.' },
+  { year: '2008', event: 'Factory affected by Wenchuan earthquake, rebuilt in Huizhou.' },
+  { year: '2010', event: 'Expanded production to inverters, servo drives, and stepper motors.' },
+  { year: '2014', event: 'Raised funds to develop new area: robotics.' },
+  { year: '2017', event: 'Established Huizhou office. Promoting international brands including Siemens, AB, ABB, Schneider, Proface, Kinco, Omron, GE.' },
+  { year: '2019', event: 'Developed internal systems to streamline management, expedite quotation, and enhance service efficiency.' },
+  { year: '2020', event: 'Huizhou Branch established during the COVID-19 pandemic.' },
+  { year: '2022', event: 'Deeply developed the international market and set up Changsha Branch.' },
+  { year: '2023', event: 'Expanded to Bayern (Germany) and Guangzhou offices.' },
 ];
 ---
 
 <SiteLayout
   title="About Us | Kernal Automation - PLC Training Kit Manufacturer"
-  description="Kernal Automation is a professional PLC training kit manufacturer in Dongguan, China. Pre-wired training equipment for schools and enterprises in 15+ countries."
+  description="Kernal Automation — founded in 2004, headquartered in Shenzhen. 400+ professionals, 125+ brands, 56,285 SKUs. PLC training kits and automation solutions for schools and enterprises in 15+ countries."
   canonicalPath="/about/"
   schemaJsonLd={aboutSchema}
 >
@@ -71,8 +80,7 @@ const milestones = [
       </div>
       <h1>About Kernal Automation</h1>
       <p class="about-hero__desc">
-        We design and assemble practical PLC training kits for schools, labs, and enterprise training centers.
-        Our goal is to provide real industrial hardware that students can wire, program, and troubleshoot.
+        Founded in 2004 and headquartered in Shenzhen, Kernal Automation is an industrial automation company with nearly 260 professionals across 4 branches in China and Germany. We collaborate with over 125 brands worldwide and offer 56,285 electronic components and automation solutions.
       </p>
     </div>
   </section>
@@ -84,12 +92,10 @@ const milestones = [
         <div class="about-block__body">
           <h2 class="about-block__title">Who We Are</h2>
           <p class="about-block__desc">
-            Kernal Automation is based in Dongguan, China. Our System Integration Department focuses on practical
-            training equipment for vocational schools, universities, and industrial training programs.
+            Kernal Automation was founded in 2004 in Shenzhen, China. With 4 branches — Huizhou (factory, warehouse, sales), Changsha (sales), Guangzhou, and Bayern, Germany — we serve customers across 15+ countries.
           </p>
           <p class="about-block__detail">
-            Instead of relying on software simulation alone, many schools want students to work with real PLCs,
-            HMIs, wiring, drives, and control logic. We build complete hardware platforms to support that kind of learning.
+            We are committed to providing a diverse selection of automation products and related accessories, as well as Industry 4.0 solutions. Our vision is to become the most reliable and trustworthy partner in the trade industry. Our System Integration Department designs PLC training kits and control cabinets for vocational schools, universities, and enterprise training programs.
           </p>
         </div>
       </article>
@@ -99,7 +105,7 @@ const milestones = [
         <div class="about-block__body">
           <h2 class="about-block__title">Why Buyers Choose Us</h2>
           <p class="about-block__desc">
-            We are not just selling catalog items. We support real training use cases with direct factory coordination.
+            With nearly 260 professionals and partnerships with 125+ brands, we combine deep supply chain expertise with pre-sales quality assurance and comprehensive after-sales support.
           </p>
           <ul class="about-block__list">
             {strengths.map((item) => <li>{item}</li>)}
