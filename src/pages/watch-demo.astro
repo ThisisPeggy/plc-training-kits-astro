@@ -1,9 +1,17 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
-import demoCover from '../images/products/ab-micro850-powerflex-22f-vfd-training-kit.jpg';
 
 const siteUrl = 'https://plc-training-kits.tech';
 const videoPath = '/videos/ab850-demo.mp4';
+const thumbnailPath = '/video-thumbnails/ab850-demo-cover.jpg';
+const relatedProductUrl = `${siteUrl}/products/ab-micro850-powerflex-22f-vfd-training-kit/`;
+const relatedCategoryUrl = `${siteUrl}/products/allen-bradley/`;
+const demoHighlights = [
+  'Allen-Bradley Micro850 PLC platform',
+  'PowerFlex 22F VFD integration',
+  'PanelView Component HMI hardware',
+  'Pre-wired training layout for lab use',
+];
 
 const pageSchema = [
   {
@@ -17,11 +25,23 @@ const pageSchema = [
     '@context': 'https://schema.org',
     '@type': 'VideoObject',
     name: 'Allen-Bradley Micro850 Training Kit Demo',
-    description: 'Short product demo video for the Allen-Bradley Micro850 training platform from Kernal Automation.',
-    thumbnailUrl: [`${siteUrl}${demoCover.src}`],
+    description: 'Short product demo video for the Allen-Bradley Micro850 PLC and PowerFlex 22F VFD training platform from Kernal Automation.',
+    thumbnailUrl: [`${siteUrl}${thumbnailPath}`],
     uploadDate: '2026-03-31T09:32:50+08:00',
     duration: 'PT1M53S',
+    inLanguage: 'en',
+    url: `${siteUrl}/watch-demo/`,
+    mainEntityOfPage: `${siteUrl}/watch-demo/`,
     contentUrl: `${siteUrl}${videoPath}`,
+    about: {
+      '@type': 'Product',
+      name: 'AB Micro850 PLC + PowerFlex 22F VFD Training Kit',
+      url: relatedProductUrl,
+      brand: {
+        '@type': 'Brand',
+        name: 'Allen-Bradley',
+      },
+    },
     publisher: {
       '@type': 'Organization',
       name: 'Kernal Automation - SI Dept.',
@@ -46,7 +66,7 @@ const pageSchema = [
   title="Watch Demo | Allen-Bradley Micro850 Training Kit Video"
   description="Watch a short Allen-Bradley Micro850 training kit demo video and request the latest catalog or product details from Peggy."
   canonicalPath="/watch-demo/"
-  image={demoCover.src}
+  image={thumbnailPath}
   schemaJsonLd={pageSchema}
 >
   <section class="page-hero">
@@ -77,7 +97,7 @@ const pageSchema = [
 
       <div class="demo-stage">
         <div class="demo-stage__frame">
-          <video class="demo-video" controls preload="metadata" playsinline poster={demoCover.src}>
+          <video class="demo-video" controls preload="metadata" playsinline poster={thumbnailPath}>
             <source src={videoPath} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
@@ -88,6 +108,27 @@ const pageSchema = [
 
   <section class="demo-notes">
     <div class="container">
+      <div class="demo-summary">
+        <div class="demo-summary__head">
+          <h2>What This Demo Covers</h2>
+          <p>
+            This page is centered on the Allen-Bradley Micro850 PLC + PowerFlex 22F VFD training kit. The visible product details below come from the current product data and help search engines understand what the video is actually about.
+          </p>
+        </div>
+        <div class="demo-summary__meta">
+          <span>Runtime: 1 min 53 sec</span>
+          <span>Platform: Allen-Bradley Micro850</span>
+          <span>Category: VFD training kit</span>
+        </div>
+        <ul class="demo-summary__list">
+          {demoHighlights.map((item) => <li>{item}</li>)}
+        </ul>
+        <div class="demo-summary__links">
+          <a class="button button--secondary" href={relatedProductUrl.replace(siteUrl, '')}>View Related Product</a>
+          <a class="button button--secondary" href={relatedCategoryUrl.replace(siteUrl, '')}>Browse Allen-Bradley Kits</a>
+        </div>
+      </div>
+
       <div class="demo-notes__grid">
         <article class="demo-note">
           <h3>Single-purpose demo page</h3>
@@ -196,6 +237,64 @@ const pageSchema = [
 
   .demo-notes {
     padding: 1rem 0 4rem;
+  }
+
+  .demo-summary {
+    margin-bottom: 1rem;
+    padding: 1.75rem;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+  }
+
+  .demo-summary__head h2 {
+    margin: 0 0 0.6rem;
+    color: var(--primary);
+    font-size: 1.35rem;
+    letter-spacing: -0.03em;
+  }
+
+  .demo-summary__head p {
+    margin: 0;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  .demo-summary__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 1rem;
+  }
+
+  .demo-summary__meta span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid rgba(26, 54, 93, 0.1);
+    border-radius: 999px;
+    background: rgba(26, 54, 93, 0.04);
+    color: var(--primary);
+    font-size: 0.84rem;
+    font-weight: 600;
+  }
+
+  .demo-summary__list {
+    margin: 1rem 0 0;
+    padding-left: 1.1rem;
+    color: var(--text);
+  }
+
+  .demo-summary__list li + li {
+    margin-top: 0.35rem;
+  }
+
+  .demo-summary__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
   }
 
   .demo-notes__grid {
