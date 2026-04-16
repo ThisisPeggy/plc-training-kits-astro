@@ -71,12 +71,12 @@ const pageSchema = [
 >
   <section class="page-hero">
     <div class="container">
-      <div class="breadcrumb breadcrumb--on-dark">
+      <nav class="breadcrumb breadcrumb--on-dark" aria-label="Breadcrumb">
         <a href="/">Home</a> / <span>Watch Demo</span>
-      </div>
+      </nav>
       <h1>Watch Demo</h1>
       <p class="page-hero__desc">
-        A clean product demo page for buyers who want to review the Allen-Bradley Micro850 training platform before requesting pricing, catalog details, or customization support.
+        Watch our Allen-Bradley Micro850 training kit demo before requesting pricing or customization details.
       </p>
     </div>
   </section>
@@ -172,6 +172,11 @@ const pageSchema = [
     align-items: stretch;
   }
 
+  .demo-stage {
+    display: flex;
+    min-height: 100%;
+  }
+
   .demo-intro,
   .demo-stage__frame,
   .demo-note {
@@ -182,6 +187,9 @@ const pageSchema = [
   }
 
   .demo-intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 2rem;
   }
 
@@ -222,6 +230,10 @@ const pageSchema = [
   }
 
   .demo-stage__frame {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    min-height: 100%;
     padding: 1rem;
     background:
       radial-gradient(circle at top right, rgba(237, 137, 54, 0.12), transparent 32%),
@@ -231,8 +243,11 @@ const pageSchema = [
   .demo-video {
     display: block;
     width: 100%;
+    height: 100%;
+    min-height: 100%;
     border-radius: 18px;
     background: #dbe4f0;
+    object-fit: cover;
   }
 
   .demo-notes {
@@ -325,6 +340,20 @@ const pageSchema = [
     .demo-shell,
     .demo-notes__grid {
       grid-template-columns: 1fr;
+    }
+
+    .demo-stage {
+      min-height: auto;
+    }
+
+    .demo-stage__frame {
+      min-height: auto;
+    }
+
+    .demo-video {
+      height: auto;
+      min-height: auto;
+      aspect-ratio: 16 / 9;
     }
 
     .demo-intro h2 {

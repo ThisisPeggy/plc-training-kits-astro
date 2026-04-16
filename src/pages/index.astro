@@ -37,17 +37,20 @@ const schemaOrg = [
     email: 'peggy@kernal-automation.com',
     url: siteUrl,
     areaServed: 'Worldwide',
-    priceRange: '$95-$2100',
+    priceRange: '$27-$2100',
+    openingHours: 'Mo-Fr 09:00-18:00',
+    paymentAccepted: 'Bank Transfer, PayPal, Alipay',
+    currenciesAccepted: 'USD, CNY',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Dongguan',
+      addressLocality: 'Shenzhen',
       addressRegion: 'Guangdong',
       addressCountry: 'CN',
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 23.0208,
-      longitude: 113.7518,
+      latitude: 22.5431,
+      longitude: 114.0579,
     },
     sameAs: [
       'https://www.linkedin.com/company/kernal-automation-co-limited/',
@@ -216,7 +219,7 @@ const processSteps = [
   </section>
 
   <!-- FAQ -->
-  <section class="section faq-section" id="faq">
+  <section class="section faq-section" id="faq" itemscope itemtype="https://schema.org/FAQPage">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">FAQ</h2>
@@ -224,9 +227,11 @@ const processSteps = [
       </div>
       <div class="faq-list">
         {faqItems.map((item) => (
-          <details class="faq-item">
-            <summary>{item.q}</summary>
-            <div class="faq-answer"><div class="faq-answer__inner">{item.a}</div></div>
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">{item.q}</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div class="faq-answer__inner" itemprop="text">{item.a}</div>
+            </div>
           </details>
         ))}
       </div>

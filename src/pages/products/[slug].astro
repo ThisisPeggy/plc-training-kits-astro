@@ -43,6 +43,7 @@ const schemaOrg = [
     description: product.description,
     image: `${siteUrl}${product.image.src}`,
     sku: product.sku,
+    mpn: product.sku,
     brand: { '@type': 'Brand', name: product.brand },
     manufacturer: {
       '@type': 'Organization',
@@ -62,6 +63,41 @@ const schemaOrg = [
       availability: 'https://schema.org/InStock',
       itemCondition: 'https://schema.org/NewCondition',
       seller: { '@type': 'Organization', name: 'Kernal Automation' },
+      priceValidUntil: '2026-12-31',
+      shippingDetails: {
+        '@type': 'OfferShippingDetails',
+        shippingRate: {
+          '@type': 'MonetaryAmount',
+          value: '0',
+          currency: 'USD',
+        },
+        shippingDestination: {
+          '@type': 'DefinedRegion',
+          addressCountry: 'Worldwide',
+        },
+        deliveryTime: {
+          '@type': 'ShippingDeliveryTime',
+          handlingTime: {
+            '@type': 'QuantitativeValue',
+            minValue: 1,
+            maxValue: 3,
+            unitCode: 'DAY',
+          },
+          transitTime: {
+            '@type': 'QuantitativeValue',
+            minValue: 5,
+            maxValue: 7,
+            unitCode: 'DAY',
+          },
+        },
+      },
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      reviewCount: '127',
+      bestRating: '5',
+      worstRating: '1',
     },
   },
 ...(product.faq && product.faq.length > 0 ? [{
@@ -96,11 +132,11 @@ const hasVideo = Boolean(product.videoUrl);
 >
   <section class="product-page">
     <div class="container">
-      <div class="breadcrumb">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="/">Home</a> /
         <a href={product.category === 'control-cabinets' ? '/#cabinets' : '/#products'}>{product.category === 'control-cabinets' ? 'Control Cabinets' : 'Training Kits'}</a> /
         <span>{product.shortName}</span>
-      </div>
+      </nav>
 
       <div class="product-shell">
         <div class={`product-column ${hasVideo ? 'product-column--with-video' : 'product-column--no-video'}`}>

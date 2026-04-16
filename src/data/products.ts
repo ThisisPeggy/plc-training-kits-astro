@@ -753,5 +753,3 @@ export const products: Product[] = [
     ],
   },
 ];
-
-export const productsByCategory = (category: ProductCategory) => products.filter((p) => p.category === category);

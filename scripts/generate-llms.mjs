@@ -34,7 +34,7 @@ function parseCategories(text) {
 }
 
 function parseProducts(text) {
-  const productSectionMatch = text.match(/export const products: Product\[\] = \[(.*)\];\s*export const productsByCategory/s);
+  const productSectionMatch = text.match(/export const products: Product\[\] = \[(.*)\];/s);
   if (!productSectionMatch) {
     throw new Error('Could not find products array.');
   }

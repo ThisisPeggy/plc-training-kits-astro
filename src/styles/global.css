@@ -12,6 +12,10 @@
   --text-light: #5a6a7e;
   --white: #ffffff;
   --border: #e2e8f0;
+  --bg-light: #fafafa;
+  --bg-tag: #edf2f7;
+  --whatsapp-hover: #0e7a48;
+  --star-color: #f59e0b;
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   --container: 1200px;
@@ -126,7 +130,7 @@ details summary:focus-visible {
 }
 
 .button--whatsapp:hover {
-  background: #0e7a48;
+  background: var(--whatsapp-hover);
   transform: translateY(-1px);
 }
 
@@ -425,7 +429,7 @@ details summary:focus-visible {
 .cabinet-image {
   height: 170px;
   overflow: hidden;
-  background: #fafafa;
+  background: var(--bg-light);
 }
 
 .cabinet-image img {
@@ -588,7 +592,7 @@ details summary:focus-visible {
 }
 
 .testimonial-slide .testimonial-stars {
-  color: #f59e0b;
+  color: var(--star-color);
   font-size: 0.85rem;
   margin-bottom: 0.5rem;
 }
@@ -789,7 +793,7 @@ p.cta-email {
   display: grid;
   place-items: center;
   padding: 1.25rem;
-  background: #fafafa;
+  background: var(--bg-light);
 }
 
 .product-media img {
@@ -872,7 +876,7 @@ p.cta-email {
   margin-bottom: 0.75rem;
   padding: 0.35rem 0.65rem;
   border-radius: 999px;
-  background: #edf2f7;
+  background: var(--bg-tag);
   color: var(--primary);
   font-size: 0.72rem;
   font-weight: 700;
@@ -914,7 +918,7 @@ p.cta-email {
   align-items: center;
   padding: 0.35rem 0.7rem;
   border-radius: 999px;
-  background: #edf2f7;
+  background: var(--bg-tag);
   color: var(--text);
   font-size: 0.82rem;
   font-weight: 600;

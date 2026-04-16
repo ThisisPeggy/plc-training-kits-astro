@@ -1,13 +1,6 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
 
-const quickLinks = [
-  { href: '/products/siemens/', label: 'Siemens PLC Training Kits' },
-  { href: '/products/mitsubishi/', label: 'Mitsubishi FX5U Training Kits' },
-  { href: '/products/allen-bradley/', label: 'Allen-Bradley Training Kits' },
-  { href: '/services/', label: 'Automation Services' },
-];
-
 const faqCategories = [
   {
     title: 'Products & Kits',
@@ -86,16 +79,13 @@ const faqSchema = [
   <!-- Hero -->
   <section class="page-hero">
     <div class="container">
-      <div class="breadcrumb breadcrumb--on-dark">
+      <nav class="breadcrumb breadcrumb--on-dark" aria-label="Breadcrumb">
         <a href="/">Home</a> / <span>FAQ</span>
-      </div>
+      </nav>
       <h1>Frequently Asked Questions</h1>
-      <p class="page-hero__desc" style="margin-bottom:1.5rem;">
+      <p class="page-hero__desc">
         {totalQuestions} answers about our training kits, ordering process, shipping, and after-sales support.
       </p>
-      <div class="faq-quick-links">
-        {quickLinks.map((link) => <a href={link.href}>{link.label}</a>)}
-      </div>
     </div>
   </section>
 
@@ -174,28 +164,6 @@ const faqSchema = [
     color: var(--primary);
     font-size: 1.15rem;
     font-weight: 700;
-  }
-
-  .faq-quick-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-  }
-
-  .faq-quick-links a {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.45rem 0.8rem;
-    border: 1px solid rgba(255, 255, 255, 0.26);
-    border-radius: 999px;
-    color: rgba(255, 255, 255, 0.92);
-    font-size: 0.88rem;
-  }
-
-  .faq-quick-links a:hover {
-    text-decoration: none;
-    border-color: rgba(255, 255, 255, 0.5);
-    color: #fff;
   }
 
   .faq-category__list {
