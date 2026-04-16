@@ -78,6 +78,13 @@ const siteUrl = 'https://plc-training-kits.tech';
 const companyName = 'Kernal Automation - SI Dept.';
 const contactLine = 'Peggy Chan - peggy@kernal-automation.com | WhatsApp: +86 176 1205 1841';
 const companyIntro = 'Kernal Automation Co., Ltd. - System Integration Department sells pre-wired, ready-to-use PLC training kits with complete documentation, wiring diagrams, and training videos. We ship to 15+ countries via DHL/FedEx (5-7 days express). All kits include a 1-year warranty.';
+const demoPage = {
+  title: 'Watch Demo',
+  url: `${siteUrl}/watch-demo/`,
+  summary: 'Dedicated video demo page for the Allen-Bradley Micro850 training kit, with on-site playback and direct catalog/contact actions.',
+  videoTitle: 'Allen-Bradley Micro850 Training Kit Demo',
+  videoUrl: `${siteUrl}/videos/ab850-demo.mp4`,
+};
 
 const groupedProducts = categories.map((category) => ({
   ...category,
@@ -114,9 +121,15 @@ llmsLines.push('- PLC Programming Service (Siemens TIA Portal, Mitsubishi GX Wor
 llmsLines.push('- Automation Software Sales (licensed Siemens, Mitsubishi software)');
 llmsLines.push('- Custom Kit Design (curriculum-matched, component customization, bulk orders)');
 llmsLines.push('');
+llmsLines.push('## Demo');
+llmsLines.push('');
+llmsLines.push(`- [${demoPage.title}](${demoPage.url}): ${demoPage.summary}`);
+llmsLines.push(`- Featured video: ${demoPage.videoTitle}`);
+llmsLines.push('');
 llmsLines.push('## Pages');
 llmsLines.push('');
 llmsLines.push(`- [Home](${siteUrl}/)`);
+llmsLines.push(`- [${demoPage.title}](${demoPage.url})`);
 llmsLines.push(`- [About](${siteUrl}/about/)`);
 llmsLines.push(`- [FAQ](${siteUrl}/faq/)`);
 llmsLines.push(`- [Services](${siteUrl}/services/)`);
@@ -178,6 +191,15 @@ llmsFullLines.push('');
 llmsFullLines.push('- PLC Programming: Siemens TIA Portal, Mitsubishi GX Works 3, AB CCW, HMI Design');
 llmsFullLines.push('- Automation Software: Licensed Siemens/Mitsubishi software sales');
 llmsFullLines.push('- Custom Kit Design: Curriculum-matched, component customization, bulk orders');
+llmsFullLines.push('');
+llmsFullLines.push('## Demo');
+llmsFullLines.push('');
+llmsFullLines.push(`### ${demoPage.title}`);
+llmsFullLines.push(`- URL: ${demoPage.url}`);
+llmsFullLines.push(`- Summary: ${demoPage.summary}`);
+llmsFullLines.push(`- Video: ${demoPage.videoTitle}`);
+llmsFullLines.push(`- Video File: ${demoPage.videoUrl}`);
+llmsFullLines.push('- Notes: This page is intended as a clean on-site product demonstration entry point for buyers reviewing the Allen-Bradley Micro850 platform.');
 llmsFullLines.push('');
 llmsFullLines.push('## Ordering');
 llmsFullLines.push('');

@@ -319,6 +319,15 @@ Kernal Automation Co., Ltd. - System Integration Department sells pre-wired, rea
 - Automation Software: Licensed Siemens/Mitsubishi software sales
 - Custom Kit Design: Curriculum-matched, component customization, bulk orders
 
+## Demo
+
+### Watch Demo
+- URL: https://plc-training-kits.tech/watch-demo/
+- Summary: Dedicated video demo page for the Allen-Bradley Micro850 training kit, with on-site playback and direct catalog/contact actions.
+- Video: Allen-Bradley Micro850 Training Kit Demo
+- Video File: https://plc-training-kits.tech/videos/ab850-demo.mp4
+- Notes: This page is intended as a clean on-site product demonstration entry point for buyers reviewing the Allen-Bradley Micro850 platform.
+
 ## Ordering
 
 - Contact: Peggy Chan - peggy@kernal-automation.com | WhatsApp: +86 176 1205 1841

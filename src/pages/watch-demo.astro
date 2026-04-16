@@ -1,0 +1,235 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import demoCover from '../images/products/ab-micro850-powerflex-22f-vfd-training-kit.jpg';
+
+const siteUrl = 'https://plc-training-kits.tech';
+const videoPath = '/videos/ab850-demo.mp4';
+
+const pageSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Watch Demo',
+    url: `${siteUrl}/watch-demo/`,
+    description: 'Watch a short Allen-Bradley Micro850 training kit demo and review the product setup before requesting the catalog.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: 'Allen-Bradley Micro850 Training Kit Demo',
+    description: 'Short product demo video for the Allen-Bradley Micro850 training platform from Kernal Automation.',
+    thumbnailUrl: [`${siteUrl}${demoCover.src}`],
+    uploadDate: '2026-03-31T09:32:50+08:00',
+    duration: 'PT1M53S',
+    contentUrl: `${siteUrl}${videoPath}`,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Kernal Automation - SI Dept.',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteUrl}/logo.png`,
+      },
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+      { '@type': 'ListItem', position: 2, name: 'Watch Demo', item: `${siteUrl}/watch-demo/` },
+    ],
+  },
+];
+---
+
+<SiteLayout
+  title="Watch Demo | Allen-Bradley Micro850 Training Kit Video"
+  description="Watch a short Allen-Bradley Micro850 training kit demo video and request the latest catalog or product details from Peggy."
+  canonicalPath="/watch-demo/"
+  image={demoCover.src}
+  schemaJsonLd={pageSchema}
+>
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb breadcrumb--on-dark">
+        <a href="/">Home</a> / <span>Watch Demo</span>
+      </div>
+      <h1>Watch Demo</h1>
+      <p class="page-hero__desc">
+        A clean product demo page for buyers who want to review the Allen-Bradley Micro850 training platform before requesting pricing, catalog details, or customization support.
+      </p>
+    </div>
+  </section>
+
+  <section class="demo-page">
+    <div class="container demo-shell">
+      <div class="demo-intro">
+        <span class="demo-eyebrow">Featured Video</span>
+        <h2>Allen-Bradley Micro850 training kit walkthrough</h2>
+        <p>
+          This page highlights one of our current demo videos in a dedicated format, so visitors can quickly understand the hardware presentation and overall training setup without leaving the website.
+        </p>
+        <div class="demo-actions">
+          <a class="button button--primary" href="https://wa.me/8617612051841?text=Hi%20Peggy%2C%20I%20watched%20the%20AB%20Micro850%20demo%20and%20would%20like%20the%20catalog." target="_blank">Get Catalog</a>
+          <a class="button button--secondary" href="/products/allen-bradley/">View AB Training Kits</a>
+        </div>
+      </div>
+
+      <div class="demo-stage">
+        <div class="demo-stage__frame">
+          <video class="demo-video" controls preload="metadata" playsinline poster={demoCover.src}>
+            <source src={videoPath} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-notes">
+    <div class="container">
+      <div class="demo-notes__grid">
+        <article class="demo-note">
+          <h3>Single-purpose demo page</h3>
+          <p>Designed as a focused viewing page instead of burying the video inside a crowded homepage section.</p>
+        </article>
+        <article class="demo-note">
+          <h3>Product-first presentation</h3>
+          <p>The video supports the training kit catalog and pairs naturally with the Allen-Bradley product category.</p>
+        </article>
+        <article class="demo-note">
+          <h3>Ready for more demos</h3>
+          <p>This structure can be reused later if you want to add Siemens, Mitsubishi, or other product walkthrough videos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner__box">
+        <h2>Need the full product catalog?</h2>
+        <p>After reviewing the demo, Peggy can send pricing, available models, and customization options.</p>
+        <div class="cta-banner__actions">
+          <a class="button button--whatsapp" href="https://wa.me/8617612051841?text=Hi%20Peggy%2C%20I%20watched%20the%20demo%20and%20want%20the%20latest%20catalog." target="_blank">WhatsApp Peggy</a>
+          <a class="button button--secondary" href="mailto:peggy@kernal-automation.com">Email Peggy</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</SiteLayout>
+
+<style>
+  .demo-page {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .demo-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .demo-intro,
+  .demo-stage__frame,
+  .demo-note {
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background: var(--white);
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+  }
+
+  .demo-intro {
+    padding: 2rem;
+  }
+
+  .demo-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(26, 54, 93, 0.08);
+    color: var(--primary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .demo-intro h2 {
+    margin: 0 0 0.85rem;
+    color: var(--primary);
+    font-size: 2rem;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+  }
+
+  .demo-intro p {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .demo-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+  }
+
+  .demo-stage__frame {
+    padding: 1rem;
+    background:
+      radial-gradient(circle at top right, rgba(237, 137, 54, 0.12), transparent 32%),
+      linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+  }
+
+  .demo-video {
+    display: block;
+    width: 100%;
+    border-radius: 18px;
+    background: #dbe4f0;
+  }
+
+  .demo-notes {
+    padding: 1rem 0 4rem;
+  }
+
+  .demo-notes__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .demo-note {
+    padding: 1.5rem;
+  }
+
+  .demo-note h3 {
+    margin: 0 0 0.55rem;
+    color: var(--primary);
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .demo-note p {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 900px) {
+    .demo-shell,
+    .demo-notes__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .demo-intro h2 {
+      font-size: 1.6rem;
+    }
+  }
+</style>

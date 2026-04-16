@@ -51,9 +51,15 @@ Contact: Peggy Chan - peggy@kernal-automation.com | WhatsApp: +86 176 1205 1841
 - Automation Software Sales (licensed Siemens, Mitsubishi software)
 - Custom Kit Design (curriculum-matched, component customization, bulk orders)
 
+## Demo
+
+- [Watch Demo](https://plc-training-kits.tech/watch-demo/): Dedicated video demo page for the Allen-Bradley Micro850 training kit, with on-site playback and direct catalog/contact actions.
+- Featured video: Allen-Bradley Micro850 Training Kit Demo
+
 ## Pages
 
 - [Home](https://plc-training-kits.tech/)
+- [Watch Demo](https://plc-training-kits.tech/watch-demo/)
 - [About](https://plc-training-kits.tech/about/)
 - [FAQ](https://plc-training-kits.tech/faq/)
 - [Services](https://plc-training-kits.tech/services/)
