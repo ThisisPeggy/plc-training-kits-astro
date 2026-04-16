@@ -10,6 +10,7 @@ const cabinetProducts = products.filter((p) => p.category === 'control-cabinets'
 const heroProduct = products.find((p) => p.slug === 'ab-micro850-powerflex-22f-vfd-training-kit')!;
 
 const siteUrl = 'https://plc-training-kits.tech';
+const nonCabinetProducts = products.filter((p) => p.category !== 'control-cabinets');
 
 const faqItems = [
   { q: "What's included in each training kit?", a: 'Each kit includes the hardware, complete user manual with wiring diagrams, step-by-step training videos, and 1-year warranty. All documentation is in English (Chinese available on request).' },
@@ -28,7 +29,7 @@ const schemaOrg = [
   {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: "Kernal Automation — SI Dept.",
+    name: "Kernal Automation - SI Dept.",
     alternateName: 'Kernal Automation - System Integration Department',
     image: `${siteUrl}/logo.png`,
     logo: `${siteUrl}/logo.png`,
@@ -53,20 +54,14 @@ const schemaOrg = [
       'https://www.youtube.com/@PeggyinKernal',
       'https://kernal-automation.com/',
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '47',
-      bestRating: '5',
-    },
   },
   {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'PLC Training Kits',
     url: `${siteUrl}/#products`,
-    numberOfItems: 15,
-    itemListElement: products.filter((p) => p.category !== 'control-cabinets').map((p, i) => ({
+    numberOfItems: nonCabinetProducts.length,
+    itemListElement: nonCabinetProducts.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       url: `${siteUrl}/products/${p.slug}/`,
@@ -94,9 +89,9 @@ const whyItems = [
 ];
 
 const testimonials = [
-  { quote: '"We ordered 15 sets of the S7-1200 VFD kits for our automation lab. Everything arrived perfectly packed, the documentation is thorough and the students started programming on day one."', name: 'Mohammed Al-Rashidi', role: 'Lab Manager, Vocational Training College — Saudi Arabia' },
-  { quote: '"Peggy was super responsive and helped us select the right Mitsubishi kits for our curriculum. The training videos saved us hours of preparation time."', name: 'Rodrigo Castillo', role: 'Instructor, Technical Institute — Mexico' },
-  { quote: '"Excellent quality at a very fair price. The custom configuration service was a big plus — we got exactly the components our course required. Shipped DHL in 6 days."', name: 'David Patel', role: 'Purchasing Manager, Engineering Academy — India' },
+  { quote: '"We ordered 15 sets of the S7-1200 VFD kits for our automation lab. Everything arrived perfectly packed, the documentation is thorough and the students started programming on day one."', name: 'Mohammed Al-Rashidi', role: 'Lab Manager, Vocational Training College - Saudi Arabia' },
+  { quote: '"Peggy was super responsive and helped us select the right Mitsubishi kits for our curriculum. The training videos saved us hours of preparation time."', name: 'Rodrigo Castillo', role: 'Instructor, Technical Institute - Mexico' },
+  { quote: '"Excellent quality at a very fair price. The custom configuration service was a big plus - we got exactly the components our course required. Shipped DHL in 6 days."', name: 'David Patel', role: 'Purchasing Manager, Engineering Academy - India' },
 ];
 
 const processSteps = [
@@ -118,10 +113,10 @@ const processSteps = [
     <div class="container home-hero__inner">
       <div class="home-hero__content">
         <div class="home-hero__copy">
-          <span class="hero-badge">Kernal Automation — System Integration Dept.</span>
-          <h1>Ready-to-Teach PLC Training Kits — Plug In, Power On, Start Teaching</h1>
+          <span class="hero-badge">Kernal Automation - System Integration Dept.</span>
+          <h1>Ready-to-Teach PLC Training Kits - Plug In, Power On, Start Teaching</h1>
           <p class="home-hero__desc">
-            Complete Siemens S7-1200, Mitsubishi FX5U, and Allen-Bradley training kits with wiring diagrams, step-by-step manuals, and training videos included. Trusted by schools and enterprises in 15+ countries. Ships in 5–7 days via DHL/FedEx.
+            Complete Siemens S7-1200, Mitsubishi FX5U, and Allen-Bradley training kits with wiring diagrams, step-by-step manuals, and training videos included. Trusted by schools and enterprises in 15+ countries. Ships in 5-7 days via DHL/FedEx.
           </p>
           <div class="home-hero__actions">
             <a class="button button--whatsapp" href={`https://wa.me/8617612051841?text=${encodeURIComponent("Hi Peggy, I'm looking for a PLC training kit for my school/organization. Can you share the catalog?")}`} target="_blank">

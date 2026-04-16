@@ -1,11 +1,17 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
 
+const relatedLinks = [
+  { href: '/products/siemens/', label: 'Siemens S7-1200 Training Kits', desc: 'Useful if you need Siemens-compatible course equipment together with TIA Portal support.' },
+  { href: '/products/mitsubishi/', label: 'Mitsubishi FX5U Training Kits', desc: 'Relevant for GX Works 3 projects, motion control labs, and Mitsubishi-based training rooms.' },
+  { href: '/products/allen-bradley/', label: 'Allen-Bradley Training Kits', desc: 'For Micro850 and MicroLogix teaching setups, including VFD and pneumatic training.' },
+];
+
 const services = [
   {
     title: 'PLC Programming Service',
     desc: 'Custom PLC programming for your automation projects. Our engineers have extensive experience with Siemens, Mitsubishi, Allen-Bradley, and more.',
-    details: 'Whether you need a complete PLC program developed from scratch, modifications to an existing system, or help debugging a tricky issue — our team can assist remotely or on-site.',
+    details: 'Whether you need a complete PLC program developed from scratch, modifications to an existing system, or help debugging a tricky issue - our team can assist remotely or on-site.',
     items: ['Siemens TIA Portal / STEP 7', 'Mitsubishi GX Works 3', 'Allen-Bradley Connected Components Workbench', 'HMI Screen Design & Integration', 'Remote Debugging & Commissioning Support'],
   },
   {
@@ -17,7 +23,7 @@ const services = [
   {
     title: 'Custom Kit Design',
     desc: 'We tailor training kits to match your specific curriculum and requirements. Our engineering team works with you from concept to delivery.',
-    details: 'Need a training kit that doesn\'t exist in our catalog? Tell us your curriculum requirements and we\'ll design a custom solution — from PLC brand selection to enclosure and wiring.',
+    details: 'Need a training kit that doesn\'t exist in our catalog? Tell us your curriculum requirements and we\'ll design a custom solution - from PLC brand selection to enclosure and wiring.',
     items: ['Custom PLC Brand & Model Selection', 'Component Add/Remove/Swap', 'Custom Enclosure & Panel Layout', 'Curriculum-Matched Configuration', 'Bulk Orders & Volume Pricing'],
   },
 ];
@@ -25,6 +31,13 @@ const services = [
 
 const siteUrl = 'https://plc-training-kits.tech';
 const serviceSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Automation Services',
+    url: `${siteUrl}/services/`,
+    description: 'PLC programming services, automation software sales, and custom training kit design for industrial and educational automation projects.',
+  },
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -67,8 +80,8 @@ const process = [
 ---
 
 <SiteLayout
-  title="Services | PLC Programming, Automation Software & Custom Kit Design"
-  description="Professional automation services: custom PLC programming, licensed automation software sales, and tailored training kit design for schools and enterprises."
+  title="Automation Services | PLC Programming, Software Sales, Custom Kit Design"
+  description="Automation services for schools and industrial buyers: PLC programming, licensed Siemens and Mitsubishi software sales, and custom PLC training kit design."
   canonicalPath="/services/"
   schemaJsonLd={serviceSchema}
 >
@@ -80,7 +93,7 @@ const process = [
       </div>
       <h1>Automation Services</h1>
       <p class="page-hero__desc">
-        Beyond training kits — our engineering team provides PLC programming, licensed software, and custom kit design for schools, labs, and industrial projects.
+        Beyond training kits - our engineering team provides PLC programming, licensed software, and custom kit design for schools, labs, and industrial projects.
       </p>
     </div>
   </section>
@@ -120,12 +133,29 @@ const process = [
     </div>
   </section>
 
+  <section class="svc-content" style="padding-top:0;">
+    <div class="container">
+      <article class="svc-block svc-block--alt">
+        <h2 class="svc-block__title">Related Training Kit Categories</h2>
+        <p class="svc-block__desc">These product categories are the most common starting points for buyers who also need engineering support or software.</p>
+        <div class="svc-link-grid">
+          {relatedLinks.map((link) => (
+            <a class="svc-link-card" href={link.href}>
+              <h3>{link.label}</h3>
+              <p>{link.desc}</p>
+            </a>
+          ))}
+        </div>
+      </article>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta-banner">
     <div class="container">
       <div class="cta-banner__box">
         <h2>Ready to get started?</h2>
-        <p>Tell us what you need — Peggy will connect you with the right engineer.</p>
+        <p>Tell us what you need - Peggy will connect you with the right engineer.</p>
         <div class="cta-banner__actions">
           <a class="button button--whatsapp" href="https://wa.me/8617612051841?text=Hi%20Peggy%2C%20I'm%20interested%20in%20your%20automation%20services." target="_blank">
             <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -259,12 +289,44 @@ const process = [
     font-size: 0.92rem;
   }
 
+  .svc-link-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .svc-link-card {
+    display: block;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--white);
+  }
+
+  .svc-link-card h3 {
+    margin: 0 0 0.45rem;
+    color: var(--primary);
+    font-size: 1rem;
+  }
+
+  .svc-link-card p {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
   @media (max-width: 768px) {
     .svc-block__list {
       grid-template-columns: 1fr;
     }
 
     .svc-process__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .svc-link-grid {
       grid-template-columns: 1fr;
     }
   }

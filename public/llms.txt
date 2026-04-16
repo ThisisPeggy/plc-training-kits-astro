@@ -1,49 +1,49 @@
-# Kernal Automation — SI Dept.
+# Kernal Automation - SI Dept.
 
 > Professional PLC training kits and control cabinets for schools, labs, and enterprise training centers. Siemens S7-1200, Mitsubishi FX5U, and Allen-Bradley Micro850 platforms.
 
 ## About
 
-Kernal Automation Co., Ltd. — System Integration Department sells pre-wired, ready-to-use PLC training kits with complete documentation, wiring diagrams, and training videos. We ship to 15+ countries via DHL/FedEx (5-7 days express). All kits include a 1-year warranty.
+Kernal Automation Co., Ltd. - System Integration Department sells pre-wired, ready-to-use PLC training kits with complete documentation, wiring diagrams, and training videos. We ship to 15+ countries via DHL/FedEx (5-7 days express). All kits include a 1-year warranty.
 
-Contact: Peggy Chan — peggy@kernal-automation.com | WhatsApp: +86 176 1205 1841
+Contact: Peggy Chan - peggy@kernal-automation.com | WhatsApp: +86 176 1205 1841
 
 ## Products
 
 ### Siemens S7-1200 Training Kits
 
-- [Siemens S7-1200 + V20 VFD Training Kit](https://plc-training-kits.tech/products/siemens-s7-1200-vfd-training-kit/): $1,150
-- [S7-1200 Communication Training Kit](https://plc-training-kits.tech/products/s7-1200-communication-training-kit/): $720
-- [S7-1211C Temperature PID Kit](https://plc-training-kits.tech/products/s7-1211c-temperature-pid-kit/): $580
-- [S7-1215C 2-Axis Motion Kit](https://plc-training-kits.tech/products/s7-1215c-2-axis-motion-kit/): $1,880
-- [S7-1200 Pneumatic Control System](https://plc-training-kits.tech/products/s7-1200-pneumatic-control-system/): $1,520
+- [Siemens S7-1200 + V20 VFD Training Kit](https://plc-training-kits.tech/products/siemens-s7-1200-vfd-training-kit/): $1,152.77
+- [S7-1200 Communication Training Kit](https://plc-training-kits.tech/products/s7-1200-communication-training-kit/): From $1,631.30
+- [S7-1211C Temperature PID Kit](https://plc-training-kits.tech/products/s7-1211c-temperature-pid-kit/): $639.48
+- [S7-1215C 2-Axis Motion Kit](https://plc-training-kits.tech/products/s7-1215c-2-axis-motion-kit/): $1,180
+- [S7-1200 Pneumatic Control System](https://plc-training-kits.tech/products/s7-1200-pneumatic-control-system/): From $1,178.55
 
 ### Mitsubishi FX5U Training Kits
 
-- [FX5U + FR-D720S VFD Kit](https://plc-training-kits.tech/products/fx5u-fr-d720s-vfd-kit/): $1,050
-- [FX5U CC-Link Communication Kit](https://plc-training-kits.tech/products/fx5u-cc-link-communication-kit/): $680
-- [FX5U-32MT Temperature PID Kit](https://plc-training-kits.tech/products/fx5u-temperature-pid-kit/): $550
-- [FX5U-64MT 2-Axis Motion Kit](https://plc-training-kits.tech/products/fx5u-2-axis-motion-kit/): $1,750
-- [FX5U Pneumatic Control System](https://plc-training-kits.tech/products/fx5u-pneumatic-control-system/): $1,450
+- [FX5U + FR-D720S VFD Kit](https://plc-training-kits.tech/products/fx5u-fr-d720s-vfd-kit/): $1,093
+- [FX5U CC-Link Communication Kit](https://plc-training-kits.tech/products/fx5u-cc-link-communication-kit/): $1,778.53
+- [FX5U-32MT Temperature PID Kit](https://plc-training-kits.tech/products/fx5u-temperature-pid-kit/): $720.23
+- [FX5U-64MT 2-Axis Motion Kit](https://plc-training-kits.tech/products/fx5u-2-axis-motion-kit/): $1,150
+- [FX5U Pneumatic Control System](https://plc-training-kits.tech/products/fx5u-pneumatic-control-system/): From $1,098.38
 
 ### Allen-Bradley Training Kits
 
 - [AB 850 Series Temperature PID Training Kit](https://plc-training-kits.tech/products/ab-850-series-temperature-pid-training-kit/): From $318.24
-- [AB Micro850 + PowerFlex 22F VFD Training Kit](https://plc-training-kits.tech/products/ab-micro850-powerflex-22f-vfd-training-kit/): $1,230.60
+- [AB Micro850 PLC + PowerFlex 22F VFD Training Kit](https://plc-training-kits.tech/products/ab-micro850-powerflex-22f-vfd-training-kit/): $1,230.60
 - [AB Micro850 Pneumatic Control Equipment](https://plc-training-kits.tech/products/ab-micro850-pneumatic-control-equipment/): From $1,331.32
 - [AB Micro 850 Communication Training Kit](https://plc-training-kits.tech/products/ab-micro-850-communication-training-kit/): $1,644.97
 - [AB MicroLogix 1400 Pneumatic Control Equipment](https://plc-training-kits.tech/products/ab-micrologix-1400-pneumatic-control-equipment/): From $916.65
 
 ### Control Cabinets
 
-- [PID Temperature Control Cabinet](https://plc-training-kits.tech/products/pid-temperature-control-cabinet/): $185
-- [Liquid Level Control Cabinet](https://plc-training-kits.tech/products/liquid-level-control-cabinet/): $125
-- [VFD Water Supply Cabinet](https://plc-training-kits.tech/products/vfd-water-supply-cabinet/): $580
-- [DOL Motor Starter Control Panel](https://plc-training-kits.tech/products/dol-motor-starter-control-panel/): $95
-- [Star-Delta Reduced Voltage Starter Control Panel](https://plc-training-kits.tech/products/star-delta-reduced-voltage-starter-control-panel/): $145
-- [Motor Forward/Reverse Control Box](https://plc-training-kits.tech/products/motor-forward-reverse-control-box/): $125
-- [Three-Phase Motor Training Set](https://plc-training-kits.tech/products/three-phase-motor-training-set/): $280
-- [Intelligent Temperature & Humidity Control Box](https://plc-training-kits.tech/products/intelligent-temperature-and-humidity-control-box/): $165
+- [PID Temperature Control Cabinet](https://plc-training-kits.tech/products/pid-temperature-control-cabinet/): From $33.33
+- [Liquid Level Control Cabinet](https://plc-training-kits.tech/products/liquid-level-control-cabinet/): From $71.67
+- [VFD Water Supply Cabinet](https://plc-training-kits.tech/products/vfd-water-supply-cabinet/): From $105
+- [DOL Motor Starter Control Panel](https://plc-training-kits.tech/products/dol-motor-starter-control-panel/): From $27.09
+- [Star-Delta Reduced Voltage Starter Control Panel](https://plc-training-kits.tech/products/star-delta-reduced-voltage-starter-control-panel/): From $55.65
+- [Motor Forward/Reverse Control Box](https://plc-training-kits.tech/products/motor-forward-reverse-control-box/): Contact for Price
+- [Three-Phase Motor Training Set](https://plc-training-kits.tech/products/three-phase-motor-training-set/): $188.78
+- [Intelligent Temperature & Humidity Control Box](https://plc-training-kits.tech/products/intelligent-temperature-and-humidity-control-box/): From $63.23
 
 ## Services
 
@@ -57,7 +57,7 @@ Contact: Peggy Chan — peggy@kernal-automation.com | WhatsApp: +86 176 1205 184
 - [About](https://plc-training-kits.tech/about/)
 - [FAQ](https://plc-training-kits.tech/faq/)
 - [Services](https://plc-training-kits.tech/services/)
-- [Siemens Kits](https://plc-training-kits.tech/products/siemens/)
-- [Mitsubishi Kits](https://plc-training-kits.tech/products/mitsubishi/)
-- [Allen-Bradley Kits](https://plc-training-kits.tech/products/allen-bradley/)
+- [Siemens S7-1200 Training Kits](https://plc-training-kits.tech/products/siemens/)
+- [Mitsubishi FX5U Training Kits](https://plc-training-kits.tech/products/mitsubishi/)
+- [Allen-Bradley Training Kits](https://plc-training-kits.tech/products/allen-bradley/)
 - [Control Cabinets](https://plc-training-kits.tech/products/cabinets/)

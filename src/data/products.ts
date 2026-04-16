@@ -92,7 +92,7 @@ import s7Pneumatic from '../images/products/s7-1200-pneumatic-control-system.jpg
 import fx5uVfd from '../images/products/fx5u-fr-d720s-vfd-kit.jpg';
 import fx5uComm from '../images/products/fx5u-cc-link-communication-kit.jpg';
 import fx5uPid from '../images/products/fx5u-temperature-pid-kit.jpg';
-import fx5uMotion from '../images/products/fx5u-2-axis-motion-kit.jpg';
+import fx5uMotion from '../images/products/fx5u-2-axis-motion-kit.png';
 import fx5uPneumatic from '../images/products/fx5u-pneumatic-control-system.jpg';
 import abPid from '../images/products/ab-850-series-temperature-pid-training-kit.jpg';
 import abVfd from '../images/products/ab-micro850-powerflex-22f-vfd-training-kit.jpg';
@@ -549,7 +549,7 @@ export const products: Product[] = [
     features: ['TPC-220 series (AC220V, single-phase): 1.8kW to 20kW', 'TPC-380 series (AC380V, three-phase): 3kW to 40kW', 'Carbon steel body with spray-painted surface', 'Complete hardware setup', 'Detailed user manual with wiring diagrams', '1-year warranty and global shipping'],
     specs: {
       'Series': 'TPC-220 (1PH) / TPC-380 (3PH)',
-      'Power Range': '1.8kW – 40kW',
+      'Power Range': '1.8kW - 40kW',
       'Voltage': 'AC220V (1PH) or AC380V (3PH)',
       'Enclosure': 'Carbon steel, spray-painted',
       'Size (small)': 'W250 x H300 x D140 mm',
@@ -577,7 +577,7 @@ export const products: Product[] = [
     features: ['THYW220 series (AC220V, single-phase): 1.5kW to 11kW', 'THYW380 series (AC380V, three-phase): 1.5kW to 11kW', '18 model configurations available', 'Ready-to-use cabinet for practical training', 'Detailed user manual with wiring diagrams', '1-year warranty and global shipping'],
     specs: {
       'Series': 'THYW220 (1PH) / THYW380 (3PH)',
-      'Power Range': '1.5kW – 11kW',
+      'Power Range': '1.5kW - 11kW',
       'Voltage': 'AC220V (1PH) or AC380V (3PH)',
       'Dimensions': '400 x 300 x 200 mm',
       'Models': '18 configurations available',
@@ -600,12 +600,12 @@ export const products: Product[] = [
     image: vfdCabinet,
     intro: 'Constant pressure water supply control cabinet with integrated VFD inverter.',
     description: 'A professional automation training cabinet for constant-pressure water supply control, inverter operation, and VFD wiring practice. YK series (one drive one) available from 0.75kW to 22kW.',
-    features: ['YK series: one-drive-one configuration', 'EK series: one-drive-two configuration', 'Input: 3PH AC380V ±15%, 47-63Hz', 'Output: 3PH 0-380V, 0-50Hz', 'Power range: 0.75kW to 30kW', 'Wall-mounted installation'],
+    features: ['YK series: one-drive-one configuration', 'EK series: one-drive-two configuration', 'Input: 3PH AC380V +/-15%, 47-63Hz', 'Output: 3PH 0-380V, 0-50Hz', 'Power range: 0.75kW to 30kW', 'Wall-mounted installation'],
     specs: {
       'Series': 'YK (one drive one) / EK (one drive two)',
-      'Input': '3PH, AC380V ±15%, 47-63Hz',
+      'Input': '3PH, AC380V +/-15%, 47-63Hz',
       'Output': '3PH, 0-380V, 0-50Hz',
-      'Power Range': '0.75kW (2.5A) – 30kW (60A)',
+      'Power Range': '0.75kW (2.5A) - 30kW (60A)',
       'Size (small)': 'W300 x H400 x D200 mm',
       'Size (medium)': 'W400 x H500 x D250 mm',
       'Size (large)': 'W500 x H600 x D300 mm',
@@ -634,7 +634,7 @@ export const products: Product[] = [
     specs: {
       'Models': 'ZT-J / PT-QL / PT-QS1 / PT-QS2 / PT-L1 / PT-L2',
       'Voltage': 'AC220V (2PH) or AC380V (3PH)',
-      'Power Range': '0.75kW – 22kW',
+      'Power Range': '0.75kW - 22kW',
       'Protection': 'Overload, short-circuit, phase loss (model dependent)',
       'Components': 'CHNT electrical components',
       'Size (small)': 'W250 x H300 x D140 mm',
@@ -662,7 +662,7 @@ export const products: Product[] = [
     specs: {
       'Models': 'SJ-R / SJ-L / SJ-Z1 / SJ-Z2',
       'Voltage': 'AC380V (3PH)',
-      'Power Range': '11kW – 55kW',
+      'Power Range': '11kW - 55kW',
       'Protection': 'Thermal / integrated protector (model dependent)',
       'Meters': 'Current and voltage meters (SJ-R, SJ-Z1)',
       'Size (small)': 'W400 x H400 x D200 mm',
@@ -741,9 +741,9 @@ export const products: Product[] = [
     features: ['TP series (1PH, AC220V): 3kW to 7.5kW', 'SP series (3PH, AC380V): 5.5kW to 15kW', '8 model configurations available', 'Sensor and environmental control education', '1-year warranty and global shipping'],
     specs: {
       'Series': 'TP (1PH) / SP (3PH)',
-      'TP Input': '1PH, AC220V ±15%, 47-63Hz',
-      'SP Input': '3PH, AC380V ±15%, 47-63Hz',
-      'Power Range': '3kW (12A) – 15kW (32A)',
+      'TP Input': '1PH, AC220V +/-15%, 47-63Hz',
+      'SP Input': '3PH, AC380V +/-15%, 47-63Hz',
+      'Power Range': '3kW (12A) - 15kW (32A)',
       'Dimensions': 'W250 x H300 x D160 mm',
       'Models': '8 configurations available',
     },

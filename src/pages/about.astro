@@ -6,6 +6,13 @@ const siteUrl = 'https://plc-training-kits.tech';
 const aboutSchema = [
   {
     '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: 'About Kernal Automation',
+    url: `${siteUrl}/about/`,
+    description: 'About Kernal Automation, a PLC training kit manufacturer and automation supplier serving schools, labs, and enterprise training centers.',
+  },
+  {
+    '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Kernal Automation Co., Ltd.',
     alternateName: 'Kernal Automation - System Integration Department',
@@ -57,14 +64,21 @@ const milestones = [
   { year: '2007', event: 'Kernal Automation officially named. Started manufacturing PLCs, sensors, and HMIs.' },
   { year: '2010', event: 'Expanded to inverters, servo drives, and stepper motors.' },
   { year: '2017', event: 'Partnering with Siemens, AB, ABB, Schneider, and more international brands.' },
-  { year: '2022', event: 'International expansion — Changsha Branch established.' },
+  { year: '2022', event: 'International expansion - Changsha Branch established.' },
   { year: '2023', event: 'Opened Bayern (Germany) and Guangzhou offices.' },
+];
+
+const resourceLinks = [
+  { href: '/products/siemens/', label: 'Siemens S7-1200 Training Kits', desc: 'Explore Siemens PLC training systems for VFD, PID, communication, motion, and pneumatic lessons.' },
+  { href: '/products/mitsubishi/', label: 'Mitsubishi FX5U Training Kits', desc: 'Browse Mitsubishi kits for CC-Link, motion control, PID, VFD, and pneumatic training.' },
+  { href: '/products/allen-bradley/', label: 'Allen-Bradley Training Kits', desc: 'See Micro850 and MicroLogix training equipment for labs and vocational schools.' },
+  { href: '/services/', label: 'Automation Services', desc: 'Review PLC programming, software supply, and custom training kit design services.' },
 ];
 ---
 
 <SiteLayout
   title="About Us | Kernal Automation - PLC Training Kit Manufacturer"
-  description="Kernal Automation — founded in 2004, headquartered in Shenzhen. 400+ professionals, 125+ brands, 56,285 SKUs. PLC training kits and automation solutions for schools and enterprises in 15+ countries."
+  description="Kernal Automation - founded in 2004, headquartered in Shenzhen. 400+ professionals, 125+ brands, 56,285 SKUs. PLC training kits and automation solutions for schools and enterprises in 15+ countries."
   canonicalPath="/about/"
   schemaJsonLd={aboutSchema}
 >
@@ -75,7 +89,7 @@ const milestones = [
       </div>
       <h1>About Kernal Automation</h1>
       <p class="page-hero__desc">
-        Founded in 2004 in Shenzhen. 260+ professionals, 4 branches across China and Germany, 125+ brand partners, 56,285 SKUs.
+        Founded in 2004 in Shenzhen. 400+ professionals, 4 branches across China and Germany, 125+ brand partners, and 56,285 SKUs.
       </p>
     </div>
   </section>
@@ -85,7 +99,7 @@ const milestones = [
       <article class="about-block">
           <h2 class="about-block__title">Who We Are</h2>
           <p class="about-block__desc">
-            Kernal Automation was founded in 2004 in Shenzhen, China. With 4 branches — Huizhou (factory, warehouse, sales), Changsha (sales), Guangzhou, and Bayern, Germany — we serve customers across 15+ countries.
+            Kernal Automation was founded in 2004 in Shenzhen, China. With 4 branches - Huizhou (factory, warehouse, sales), Changsha (sales), Guangzhou, and Bayern, Germany - we serve customers across 15+ countries.
           </p>
           <p class="about-block__detail">
             Our System Integration Department designs PLC training kits and control cabinets for vocational schools, universities, and enterprise training programs.
@@ -95,7 +109,7 @@ const milestones = [
       <article class="about-block about-block--alt">
           <h2 class="about-block__title">Why Buyers Choose Us</h2>
           <p class="about-block__desc">
-            With nearly 260 professionals and partnerships with 125+ brands, we combine deep supply chain expertise with pre-sales quality assurance and comprehensive after-sales support.
+            With 400+ professionals and partnerships with 125+ brands, we combine deep supply chain expertise with pre-sales quality assurance and comprehensive after-sales support.
           </p>
           <ul class="about-block__list">
             {strengths.map((item) => <li>{item}</li>)}
@@ -125,6 +139,21 @@ const milestones = [
           <div class="about-contact">
             <a href="https://wa.me/8617612051841" target="_blank">WhatsApp: +86 176 1205 1841</a>
             <a href="mailto:peggy@kernal-automation.com">peggy@kernal-automation.com</a>
+          </div>
+      </article>
+
+      <article class="about-block">
+          <h2 class="about-block__title">Explore Our PLC Training Equipment</h2>
+          <p class="about-block__desc">
+            If you are comparing product lines or planning an automation lab purchase, start with the most relevant category below.
+          </p>
+          <div class="resource-grid">
+            {resourceLinks.map((link) => (
+              <a class="resource-card" href={link.href}>
+                <h3>{link.label}</h3>
+                <p>{link.desc}</p>
+              </a>
+            ))}
           </div>
       </article>
     </div>
@@ -263,8 +292,45 @@ const milestones = [
     text-decoration: underline;
   }
 
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .resource-card {
+    display: block;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--bg);
+  }
+
+  .resource-card h3 {
+    margin: 0 0 0.4rem;
+    color: var(--primary);
+    font-size: 1rem;
+  }
+
+  .resource-card p {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .resource-card:hover {
+    border-color: var(--primary);
+    text-decoration: none;
+  }
+
   @media (max-width: 768px) {
     .about-block__list {
+      grid-template-columns: 1fr;
+    }
+
+    .resource-grid {
       grid-template-columns: 1fr;
     }
   }

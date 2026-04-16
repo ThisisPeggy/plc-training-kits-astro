@@ -13,6 +13,18 @@ export function getStaticPaths() {
 const { product } = Astro.props;
 const related = products.filter((item) => item.category === product.category && item.slug !== product.slug).slice(0, 3);
 const siteUrl = 'https://plc-training-kits.tech';
+const categoryHrefMap = {
+  siemens: '/products/siemens/',
+  mitsubishi: '/products/mitsubishi/',
+  'allen-bradley': '/products/allen-bradley/',
+  'control-cabinets': '/products/cabinets/',
+};
+const categoryLabelMap = {
+  siemens: 'Siemens S7-1200 training kits',
+  mitsubishi: 'Mitsubishi FX5U training kits',
+  'allen-bradley': 'Allen-Bradley training kits',
+  'control-cabinets': 'control cabinets',
+};
 
 const isYoutube =
   typeof product.videoUrl === 'string' &&
@@ -42,18 +54,11 @@ const schemaOrg = [
         'https://kernal-automation.com/',
       ],
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '47',
-      bestRating: '5',
-    },
     offers: {
       '@type': 'Offer',
       url: `${siteUrl}/products/${product.slug}/`,
       priceCurrency: 'USD',
       price: String(product.priceValue),
-      priceValidUntil: '2026-12-31',
       availability: 'https://schema.org/InStock',
       itemCondition: 'https://schema.org/NewCondition',
       seller: { '@type': 'Organization', name: 'Kernal Automation' },
@@ -192,6 +197,42 @@ const hasVideo = Boolean(product.videoUrl);
           </div>
         </div>
       )}
+
+      <div class="section">
+        <div class="section-header">
+          <h2 class="section-title">More Buying Information</h2>
+          <p class="section-subtitle">Use these pages to compare related products, shipping details, and customization options.</p>
+        </div>
+        <div class="related-grid">
+          <a class="related-card" href={categoryHrefMap[product.category]}>
+            <span class={`tag tag--${product.category}`}>{product.brand}</span>
+            <h3>Browse More {categoryLabelMap[product.category]}</h3>
+            <p style="color:var(--text-light);font-size:0.92rem;margin:0 0 0.5rem;">Compare other products in the same platform or category before placing an order.</p>
+            <div class="card__footer">
+              <div class="price">Category Page</div>
+              <span class="card__link">Open &rarr;</span>
+            </div>
+          </a>
+          <a class="related-card" href="/faq/">
+            <span class={`tag tag--${product.category}`}>FAQ</span>
+            <h3>Check Shipping, Payment, and Warranty FAQs</h3>
+            <p style="color:var(--text-light);font-size:0.92rem;margin:0 0 0.5rem;">Review common buying questions about delivery time, documentation, support, and customization.</p>
+            <div class="card__footer">
+              <div class="price">Support Info</div>
+              <span class="card__link">Open &rarr;</span>
+            </div>
+          </a>
+          <a class="related-card" href="/services/">
+            <span class={`tag tag--${product.category}`}>Services</span>
+            <h3>Need Customization or Engineering Support?</h3>
+            <p style="color:var(--text-light);font-size:0.92rem;margin:0 0 0.5rem;">See available services for PLC programming, software supply, and custom kit design.</p>
+            <div class="card__footer">
+              <div class="price">Services</div>
+              <span class="card__link">Open &rarr;</span>
+            </div>
+          </a>
+        </div>
+      </div>
 
       {product.faq && product.faq.length > 0 && (
         <div class="section product-faq-section">

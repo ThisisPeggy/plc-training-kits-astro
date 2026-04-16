@@ -13,6 +13,31 @@ export function getStaticPaths() {
 const { cat } = Astro.props;
 const items = products.filter((p) => p.category === cat.category);
 const label = cat.category === 'control-cabinets' ? 'Control Cabinets' : 'Training Kits';
+const supportLink = cat.category === 'control-cabinets' ? '/services/' : '/faq/';
+const supportLabel = cat.category === 'control-cabinets' ? 'See related automation services' : 'Read buying and shipping FAQs';
+
+const categoryContent = {
+  siemens: {
+    buyerTitle: 'Who Usually Buys Siemens S7-1200 PLC Training Kits',
+    buyerText: 'These Siemens PLC training kits are commonly purchased by vocational schools, university automation labs, industrial training centers, and distributors looking for Siemens-compatible classroom equipment. Popular search intent includes Siemens PLC trainer, S7-1200 training kit, PROFINET training equipment, PID control trainer, and motion control training system.',
+    useCases: ['PLC programming classes with Siemens TIA Portal', 'Industrial communication training with PROFINET and remote I/O', 'Process control lessons covering PID and analog signals', 'Motion control and pneumatic sequencing practice'],
+  },
+  mitsubishi: {
+    buyerTitle: 'Who Usually Buys Mitsubishi FX5U Training Kits',
+    buyerText: 'These Mitsubishi FX5U training kits fit schools and labs teaching GX Works 3, CC-Link communication, temperature control, motion control, and inverter applications. They are suitable for buyers searching for Mitsubishi PLC training equipment, FX5U motion trainer, CC-Link communication kit, and Mitsubishi VFD training kit.',
+    useCases: ['Mitsubishi PLC programming and HMI integration training', 'CC-Link and Ethernet communication lessons', 'PID temperature control and analog signal practice', '2-axis interpolation and positioning training'],
+  },
+  'allen-bradley': {
+    buyerTitle: 'Who Usually Buys Allen-Bradley PLC Trainers',
+    buyerText: 'Allen-Bradley training kits are typically used by technical schools, North America focused training centers, and buyers who need Micro850 or MicroLogix practical teaching equipment. Search intent here often includes Allen-Bradley PLC trainer, Micro850 training kit, PowerFlex training panel, and pneumatic control training equipment.',
+    useCases: ['Micro850 and MicroLogix classroom training', 'EtherNet/IP, Modbus, and HMI exercises', 'AB VFD integration with PowerFlex drives', 'Pneumatic timing and sequencing training'],
+  },
+  cabinets: {
+    buyerTitle: 'Who Usually Buys Control Cabinets',
+    buyerText: 'These control cabinets are usually purchased for entry-level electrical training, maintenance practice, and compact process control demonstrations. They match search intent such as motor control training panel, PID temperature control cabinet, star-delta starter panel, liquid level control panel, and VFD water supply cabinet.',
+    useCases: ['Motor starter and forward/reverse wiring practice', 'Liquid level and temperature control demonstrations', 'Reduced-voltage starting and protection training', 'Compact process control and maintenance education'],
+  },
+}[cat.slug];
 
 const siteUrl = 'https://plc-training-kits.tech';
 const categorySchema = [
@@ -60,6 +85,9 @@ const categorySchema = [
           <span>Pre-wired & Ready to Use</span>
           <span>Complete Documentation</span>
         </div>
+        <p class="page-intro" style="margin-top:0.9rem;">
+          Need more details before you choose? <a href={supportLink}>{supportLabel}</a>.
+        </p>
       </div>
 
       <div class={cat.gridClass}>
@@ -96,6 +124,18 @@ const categorySchema = [
           )
         ))}
       </div>
+
+      <section class="category-guide">
+        <div class="category-guide__card">
+          <h2>{categoryContent.buyerTitle}</h2>
+          <p>{categoryContent.buyerText}</p>
+          <div class="category-guide__grid">
+            {categoryContent.useCases.map((item) => (
+              <div class="category-guide__item">{item}</div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   </section>
 
@@ -112,3 +152,50 @@ const categorySchema = [
     </div>
   </section>
 </SiteLayout>
+
+<style>
+  .category-guide {
+    margin-top: 2rem;
+  }
+
+  .category-guide__card {
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--bg);
+  }
+
+  .category-guide__card h2 {
+    margin: 0 0 0.75rem;
+    color: var(--primary);
+    font-size: 1.3rem;
+  }
+
+  .category-guide__card p {
+    margin: 0;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  .category-guide__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin-top: 1rem;
+  }
+
+  .category-guide__item {
+    padding: 0.95rem 1rem;
+    border-radius: 14px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 0.92rem;
+  }
+
+  @media (max-width: 768px) {
+    .category-guide__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -7,9 +7,11 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "npm run generate:llms",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "generate:llms": "node scripts/generate-llms.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
