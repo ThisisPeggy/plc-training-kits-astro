@@ -325,5 +325,73 @@ const processSteps = [
         document.getElementById(`cat-${(tab as HTMLElement).dataset.cat}`)?.classList.add('active');
       });
     });
+
+    // Mobile: shorten "Contact for Price" to "Contact"
+    if (window.innerWidth <= 768) {
+      document.querySelectorAll('.cabinet-price').forEach((el) => {
+        if (el.textContent?.includes('Contact for Price')) {
+          el.textContent = 'Contact';
+        }
+      });
+
+      // Mobile: shorten stats text
+      const statsTexts = {
+        'Training Kit Models': 'Models',
+        'Countries Shipped': 'Countries',
+        'With Documentation': 'Docs',
+        '1 Year': '1 Year',
+        'Warranty': 'Warranty'
+      };
+      
+      document.querySelectorAll('.stat-box span').forEach((el) => {
+        const text = el.textContent?.trim();
+        if (text && statsTexts[text]) {
+          el.textContent = statsTexts[text];
+        }
+      });
+
+      // Mobile: shorten category tabs
+      document.querySelectorAll('.cat-tab').forEach((el) => {
+        const text = el.textContent?.trim();
+        if (text === 'Siemens S7-1200') el.textContent = 'Siemens';
+        if (text === 'Mitsubishi FX5U') el.textContent = 'Mitsubishi';
+        if (text === 'Allen-Bradley') el.textContent = 'AB';
+      });
+
+      // Mobile: shorten Why Choose Us titles
+      const whyTitles = {
+        'Complete Documentation': 'Documentation',
+        'Training Videos': 'Videos',
+        'Customization': 'Custom',
+        'Technical Support': 'Support',
+        'Global Shipping': 'Shipping',
+        'Bulk Pricing': 'Pricing'
+      };
+      
+      document.querySelectorAll('.why-title').forEach((el) => {
+        const text = el.textContent?.trim();
+        if (text && whyTitles[text]) {
+          el.textContent = whyTitles[text];
+        }
+      });
+
+      // Mobile: put hero title and image side by side
+      const heroTitle = document.querySelector('.home-hero h1');
+      const heroVisual = document.querySelector('.home-hero__visual');
+      const heroActions = document.querySelector('.home-hero__actions');
+      if (heroTitle && heroVisual && heroActions) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'hero-title-with-image';
+        
+        const leftColumn = document.createElement('div');
+        leftColumn.className = 'hero-left-column';
+        
+        heroTitle.parentNode?.insertBefore(wrapper, heroTitle);
+        wrapper.appendChild(leftColumn);
+        leftColumn.appendChild(heroTitle);
+        leftColumn.appendChild(heroActions);
+        wrapper.appendChild(heroVisual);
+      }
+    }
   </script>
 </SiteLayout>

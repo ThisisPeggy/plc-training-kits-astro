@@ -16,7 +16,7 @@
       <a href="/#contact">Contact</a>
     </nav>
     <div class="site-header__actions">
-      <a class="button header-demo-link" href="/watch-demo/">Watch Demo</a>
+      <a class="button header-demo-link" href="/watch-demo/"><span>Watch Demo</span></a>
       <a class="button button--secondary" href="https://wa.me/8617612051841?text=Hi%20Peggy%2C%20I%20need%20the%20latest%20PLC%20training%20kit%20catalog." target="_blank">Get Catalog</a>
       <button id="hamburgerBtn" class="hamburger-btn" aria-label="Menu">
         <span></span>
@@ -38,7 +38,7 @@
       <a class="side-link" href="/services/">Services</a>
       <a class="side-link" href="/faq/">FAQ</a>
       <a class="side-link" href="/about/">About</a>
-      <a class="side-link" href="/#contact">Contact</a>
+      <a class="side-link" href="/#contact" data-contact-link>Contact</a>
     </nav>
     <div class="side-menu__footer">
       <a href="https://wa.me/8617612051841" target="_blank" class="side-menu__wa">WhatsApp Peggy</a>
@@ -193,8 +193,31 @@
   }
 
   @media (max-width: 768px) {
-    .hamburger-btn { display: flex; }
-    .site-header__actions .button--secondary { display: none; }
+    .hamburger-btn { 
+      display: flex;
+      min-width: 44px;
+      min-height: 44px;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .site-header__actions .button--secondary { 
+      display: none; 
+    }
+
+    .site-header__actions .header-demo-link {
+      padding: 0.4rem 0.75rem;
+      font-size: 0.85rem;
+      min-height: 32px;
+    }
+
+    .site-header__actions .header-demo-link::before {
+      content: 'Demo';
+    }
+
+    .site-header__actions .header-demo-link span {
+      display: none;
+    }
   }
 </style>
 
@@ -208,5 +231,23 @@
   btn?.addEventListener('click', openM);
   close?.addEventListener('click', closeM);
   overlay?.addEventListener('click', closeM);
-  document.querySelectorAll('.side-link').forEach(function(l) { l.addEventListener('click', closeM); });
+  
+  document.querySelectorAll('.side-link').forEach(function(l) { 
+    l.addEventListener('click', function(e) {
+      // For contact link, always go to home page contact section
+      if (l.hasAttribute('data-contact-link')) {
+        e.preventDefault();
+        closeM();
+        if (window.location.pathname === '/' || window.location.pathname === '') {
+          // Already on home page, just scroll
+          document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          // Navigate to home page with hash - use origin to ensure correct URL
+          window.location.href = window.location.origin + '/#contact';
+        }
+      } else {
+        closeM();
+      }
+    });
+  });
 </script>
